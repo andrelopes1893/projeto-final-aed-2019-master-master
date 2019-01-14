@@ -242,6 +242,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "gestao_de_salas";
             this.Load += new System.EventHandler(this.gestao_de_salas_Load_1);

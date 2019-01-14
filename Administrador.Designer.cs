@@ -43,11 +43,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.nome2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.nome1 = new System.Windows.Forms.TextBox();
-            this.email1 = new System.Windows.Forms.TextBox();
-            this.passe1 = new System.Windows.Forms.TextBox();
-            this.confirmar1 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.confirmar1 = new System.Windows.Forms.TextBox();
+            this.passe1 = new System.Windows.Forms.TextBox();
+            this.email1 = new System.Windows.Forms.TextBox();
+            this.nome1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -178,37 +178,16 @@
             this.panel1.TabIndex = 7;
             this.panel1.Visible = false;
             // 
-            // nome1
+            // button4
             // 
-            this.nome1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
-            this.nome1.Location = new System.Drawing.Point(24, 37);
-            this.nome1.Name = "nome1";
-            this.nome1.Size = new System.Drawing.Size(278, 35);
-            this.nome1.TabIndex = 0;
-            this.nome1.Text = "Nome de Utilizador...";
-            this.nome1.Click += new System.EventHandler(this.nome1_Click);
-            this.nome1.TextChanged += new System.EventHandler(this.nome1_TextChanged);
-            // 
-            // email1
-            // 
-            this.email1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
-            this.email1.Location = new System.Drawing.Point(24, 94);
-            this.email1.Name = "email1";
-            this.email1.Size = new System.Drawing.Size(278, 35);
-            this.email1.TabIndex = 1;
-            this.email1.Text = "Email...";
-            this.email1.Click += new System.EventHandler(this.email1_Click);
-            // 
-            // passe1
-            // 
-            this.passe1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
-            this.passe1.Location = new System.Drawing.Point(24, 160);
-            this.passe1.Name = "passe1";
-            this.passe1.Size = new System.Drawing.Size(278, 35);
-            this.passe1.TabIndex = 2;
-            this.passe1.Text = "Palavra-Passe...";
-            this.passe1.Click += new System.EventHandler(this.passe1_Click);
-            this.passe1.TextChanged += new System.EventHandler(this.passe1_TextChanged);
+            this.button4.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(80, 297);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(180, 49);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Guardar Registo";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // confirmar1
             // 
@@ -221,16 +200,37 @@
             this.confirmar1.Click += new System.EventHandler(this.confirmar1_Click);
             this.confirmar1.TextChanged += new System.EventHandler(this.confirmar1_TextChanged);
             // 
-            // button4
+            // passe1
             // 
-            this.button4.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(80, 297);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(180, 49);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Guardar Registo";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.passe1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
+            this.passe1.Location = new System.Drawing.Point(24, 160);
+            this.passe1.Name = "passe1";
+            this.passe1.Size = new System.Drawing.Size(278, 35);
+            this.passe1.TabIndex = 2;
+            this.passe1.Text = "Palavra-Passe...";
+            this.passe1.Click += new System.EventHandler(this.passe1_Click);
+            this.passe1.TextChanged += new System.EventHandler(this.passe1_TextChanged);
+            // 
+            // email1
+            // 
+            this.email1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
+            this.email1.Location = new System.Drawing.Point(24, 94);
+            this.email1.Name = "email1";
+            this.email1.Size = new System.Drawing.Size(278, 35);
+            this.email1.TabIndex = 1;
+            this.email1.Text = "Email...";
+            this.email1.Click += new System.EventHandler(this.email1_Click);
+            // 
+            // nome1
+            // 
+            this.nome1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F);
+            this.nome1.Location = new System.Drawing.Point(24, 37);
+            this.nome1.Name = "nome1";
+            this.nome1.Size = new System.Drawing.Size(278, 35);
+            this.nome1.TabIndex = 0;
+            this.nome1.Text = "Nome de Utilizador...";
+            this.nome1.Click += new System.EventHandler(this.nome1_Click);
+            this.nome1.TextChanged += new System.EventHandler(this.nome1_TextChanged);
             // 
             // Administrador
             // 
@@ -246,6 +246,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Administrador";
             this.Text = "Administrador";
