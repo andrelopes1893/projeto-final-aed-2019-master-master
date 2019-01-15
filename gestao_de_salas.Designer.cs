@@ -48,7 +48,6 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.nome = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -216,23 +215,11 @@
             this.nome.Size = new System.Drawing.Size(23, 22);
             this.nome.TabIndex = 10;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F);
-            this.button1.Location = new System.Drawing.Point(287, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 47);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Upload";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // gestao_de_salas
             // 
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(429, 603);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.nome);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -275,6 +262,5 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.TextBox nome;
-        private System.Windows.Forms.Button button1;
     }
 }

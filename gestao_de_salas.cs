@@ -13,12 +13,28 @@ namespace projeto_final
 {
     public partial class gestao_de_salas : Form
     {
+        string diretorio = @"diretorio/";
         string salas = @"salas.txt";
 
         public gestao_de_salas()
         {
             InitializeComponent();
             nome.Visible = false;
+            StreamReader sr;
+            if (Directory.Exists(diretorio))
+            {
+                sr = File.OpenText(diretorio + salas);
+                string linha;
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    listBox2.Items.Add(linha);
+                }
+                sr.Close();
+            }
+            else
+            {
+                MessageBox.Show("O ficheiro não fez upload ou está vazio!", "Erro no Upload", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -68,19 +84,28 @@ namespace projeto_final
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            if (!Directory.Exists(diretorio))
+            {
+                Directory.CreateDirectory(diretorio);
+            }
+
+
+
             //escrever no ficheiro salas.txt a sala que é adicionada à listbox2 atraves da textbox2
             var linha = textBox2.Text;
 
-            if (listBox2.Items.Contains(textBox2.Text) != true)
+            if (listBox2.Items.Contains(diretorio + textBox2.Text) != true)
             {
-                if (File.Exists(salas) == true)
-                {
-                    StreamWriter sw;
-                    sw = File.AppendText(salas);
-                    sw.WriteLine(linha + ";");
+                StreamWriter sw;
+                if (File.Exists(diretorio + salas) == true)
+                {                    
+                    sw = File.AppendText(diretorio + salas);
+                    sw.WriteLine(linha);
                     sw.Close();
                 }
-                listBox2.Items.Add(textBox2.Text + ";"); //adiciona à listbox2 o conteudo escrito na textbox1
+                listBox2.Items.Add(textBox2.Text); //adiciona à listbox2 o conteudo escrito na textbox1
+                sw = File.CreateText(diretorio + textBox2.Text + ".txt");
+                sw.Close();
             }
             else
             {
@@ -91,41 +116,33 @@ namespace projeto_final
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            //remove o conteudo da listbox2 que nesta foi selecionado
-            listBox2.Items.Remove(listBox2.SelectedItem);
-
+            
+            
             //remover linha do ficheiro salas.txt que tem o texto igual à sala selecionada da listBox2
-            string salas = @"salas.txt";
-            if (File.Exists(salas))
+            if (File.Exists(diretorio + salas))
             {
+                File.Delete(diretorio + listBox2.SelectedItem + ".txt");
+                
+                //remove o conteudo da listbox2 que nesta foi selecionado
+                listBox2.Items.Remove(listBox2.SelectedItem);
+
+                File.Delete(diretorio + salas);
+
+                StreamWriter sw1 = File.CreateText(diretorio + salas);
+                sw1.Close();
+
+                StreamWriter sw2 = File.AppendText(diretorio + salas);
                 for (int i = 0; i < listBox2.Items.Count; i++)
                 {
-                    //Confirmação se a sala se encontra no sistema
-                   
-                        //Se estiver registada no sistema, apaga todo o texto do ficheiro salas.txt e volta a escrever de acordo com a listbox1,sem a sala que se removeu
-                        string linha;
-                        listBox2.Items.Remove(listBox2.SelectedItem);
-                        //Apagar todo o texto do ficheiro
-                        File.WriteAllText(@"salas.txt", "");
-                        StreamWriter sw = File.AppendText(salas);
-                        //Escrever o novo texto
-                        string num = listBox2.Items.Count.ToString();
-                        int num1 = Convert.ToInt16(num);
-                        for (int a = 0; a < num1; a++)
-                        {
-                            linha = listBox2.Items[a].ToString();
-                            sw.WriteLine(linha);
-                        }
-                        sw.Close();
-                        MessageBox.Show("Sala removida com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        goto end;                    
+                    sw2.WriteLine(listBox2.Items[i].ToString());
                 }
-                MessageBox.Show("A sala " + textBox2.Text + " não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            end:;
+                sw2.Close();
+
+                MessageBox.Show("Sala removida com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show("A sala " + textBox2.Text + " não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("A sala " + listBox2.SelectedItem + " não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -138,27 +155,6 @@ namespace projeto_final
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        //adicionar texto do ficheiro salas.txt à listBox2
-        private void button1_Click(object sender, EventArgs e)
-        {
-            button1.Enabled = false;
-            StreamReader sr;
-            if (File.Exists(salas))
-            {
-                sr = File.OpenText(salas);
-                string linha;
-                while ((linha = sr.ReadLine()) != null)
-                {
-                    listBox2.Items.Add(linha); 
-                }
-                sr.Close();
-            }        
-            else
-            {
-                MessageBox.Show("O ficheiro não fez upload ou está vazio!", "Erro no Upload", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

@@ -202,8 +202,8 @@ namespace projeto_final
                         {
                             if (linha1[i].Split(';')[1] == nome1.Text && linha1[i].Split(';')[3] == passe1.Text)
                             {
-                                variaveis.id = Convert.ToInt16(linha1[i].Split(';')[4]);
-                                variaveis.nomeut = nome1.Text;
+                                //variaveis.id = Convert.ToInt16(linha1[i].Split(';')[4]);
+                                //variaveis.nomeut = nome1.Text;
                                 c++;
                             }
                         }
