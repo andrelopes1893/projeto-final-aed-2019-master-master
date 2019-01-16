@@ -113,7 +113,7 @@ namespace projeto_final
 
         private void comboBox1_Click(object sender, EventArgs e)
         {
-            //sempre que se seleciona uma sala na comboBox1, faz-se refresh na datagridview ficando esta vazia
+            //sempre que se seleciona a comboBox1, faz-se refresh na datagridview ficando esta vazia
             dataGridView1.Rows.Clear();
         }
     }
