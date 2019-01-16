@@ -64,7 +64,7 @@ namespace projeto_final
         private void button1_Click(object sender, EventArgs e)
         {
            
-            //escreve no ficheiro salas.txt a sala que é adicionada à listbox1 atraves da textbox1
+            //escreve no ficheiro topicosdeassuntos.txt o assunto que é adicionado à listbox1 atraves da textbox1
             var linha = textBox1.Text;
             
             if (listBox1.Items.Contains(textBox1.Text) != true)

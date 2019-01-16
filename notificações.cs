@@ -13,7 +13,8 @@ namespace projeto_final
 {
     public partial class notificações : Form
     {
-        string topicosdeassuntos = @"topicosdeassuntos.txt";
+        string diretorio = @"diretorio/";
+        string notificaçoes = @"notificaçoes";
 
         public notificações()
         {
@@ -25,6 +26,41 @@ namespace projeto_final
             timer1.Enabled = true;
             nome2.Visible = false;
             textBox1.Text = variaveis.nomeut;
+            textBox7.ReadOnly = true;
+            textBox7.Text = "Pendente";
+            
+
+            string salas = @"salas.txt";
+            StreamReader sr;
+            //confirma se existe o ficheiro salas
+            if (File.Exists(diretorio + salas))
+            {
+                //existindo, abre-o para colocar que salas se encontram no sistema
+                sr = File.OpenText(diretorio + salas);
+                string linha;
+                //adicionar texto do ficheiro salas.txt à COMBOBOX2
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    comboBox2.Items.Add(linha);
+                }
+                sr.Close();
+            }
+
+            string topicosdeassuntos = @"topicosdeassuntos.txt";
+            StreamReader sr1;
+            //confirma se existe o ficheiro dos assuntos
+            if (File.Exists(topicosdeassuntos))
+            {
+                //existindo, abre-o para colocar os assuntos se encontram no sistema
+                sr1 = File.OpenText(topicosdeassuntos);
+                string linha;
+                //adicionar texto do ficheiro topicosdeassuntos.txt à COMBOBOX1
+                while ((linha = sr1.ReadLine()) != null)
+                {
+                    comboBox1.Items.Add(linha);
+                }
+                sr1.Close();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -79,6 +115,28 @@ namespace projeto_final
         private void button1_Click(object sender, EventArgs e)
         {
             //CRIAR FICHEIRO QUE RECEBE AS NOTIFICAÇÕES DOS DOCENTES
+            if (File.Exists(notificaçoes))
+            {
+                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + ";" + textBox4.Text + ";" + label1.Text + ";" + label2.Text + ";" + textBox7.Text + ";");
+
+                //Adiciona no ficheiro 
+                StreamWriter sw;
+                sw = File.AppendText(notificaçoes);
+                sw.WriteLine(linha);
+                sw.Close();
+            }
+            else
+            {
+                //cria o ficheiro
+                File.Create(notificaçoes);
+                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + ";" + textBox4.Text + ";" + label1.Text + ";" + label2.Text + ";" + textBox7.Text + ";");
+
+                //Adiciona no ficheiro 
+                StreamWriter sw;
+                sw = File.AppendText(notificaçoes);
+                sw.WriteLine(linha);
+                sw.Close();
+            }
         }
 
         private void nome_TextChanged(object sender, EventArgs e)
@@ -86,26 +144,9 @@ namespace projeto_final
 
         }
 
-        //adicionar texto do ficheiro salas.txt à COMBOBOX1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string topicosdeassuntos = @"topicosdeassuntos.txt";
-            string[] linha1 = File.ReadAllLines(topicosdeassuntos);
-            
-            if (File.Exists(topicosdeassuntos))
-            {
-                StreamReader sr = File.OpenText(topicosdeassuntos);
-                string linha;
-                while ((linha = sr.ReadLine()) != null)
-                {
-                    comboBox1.Items.Add(linha); //adiciona as linhas do ficheiro à combobox
-                }
-                sr.Close();
-            }
-            for (int i = 0; i < linha1.Length; i++)
-            {
-                
-            }
+
         }
     }
 }

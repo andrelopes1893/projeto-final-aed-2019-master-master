@@ -46,7 +46,6 @@
             this.Data = new System.Windows.Forms.Label();
             this.Hora = new System.Windows.Forms.Label();
             this.Estado = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -55,6 +54,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.nome2 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -146,9 +146,9 @@
             this.Docente.Font = new System.Drawing.Font("Bahnschrift Condensed", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Docente.Location = new System.Drawing.Point(70, 150);
             this.Docente.Name = "Docente";
-            this.Docente.Size = new System.Drawing.Size(109, 40);
+            this.Docente.Size = new System.Drawing.Size(126, 40);
             this.Docente.TabIndex = 3;
-            this.Docente.Text = "Docente:";
+            this.Docente.Text = "Utilizador:";
             // 
             // Sala
             // 
@@ -216,21 +216,12 @@
             this.Estado.TabIndex = 9;
             this.Estado.Text = "Estado:";
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Bahnschrift Condensed", 19.8F);
-            this.textBox2.Location = new System.Drawing.Point(200, 200);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(295, 41);
-            this.textBox2.TabIndex = 11;
-            // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(239, 300);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(256, 89);
+            this.textBox4.Size = new System.Drawing.Size(264, 89);
             this.textBox4.TabIndex = 13;
             // 
             // textBox7
@@ -301,7 +292,7 @@
             this.textBox1.Location = new System.Drawing.Point(200, 150);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(295, 41);
+            this.textBox1.Size = new System.Drawing.Size(303, 41);
             this.textBox1.TabIndex = 23;
             // 
             // nome2
@@ -312,6 +303,14 @@
             this.nome2.TabIndex = 22;
             this.nome2.TextChanged += new System.EventHandler(this.nome_TextChanged);
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(200, 217);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(303, 24);
+            this.comboBox2.TabIndex = 24;
+            // 
             // notificações
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -319,6 +318,7 @@
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.nome2);
             this.Controls.Add(this.button1);
@@ -327,7 +327,6 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.Estado);
             this.Controls.Add(this.Hora);
             this.Controls.Add(this.Data);
@@ -370,7 +369,6 @@
         private System.Windows.Forms.Label Data;
         private System.Windows.Forms.Label Hora;
         private System.Windows.Forms.Label Estado;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -380,5 +378,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox nome2;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

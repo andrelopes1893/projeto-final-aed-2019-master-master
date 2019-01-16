@@ -38,13 +38,14 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.nome = new System.Windows.Forms.TextBox();
+            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Software = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_de_instalação = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hora_de_Instalação = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo_de_Licença = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.nome = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,7 +61,7 @@
             this.toolStripMenuItem3});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(578, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(695, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -106,9 +107,9 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 570);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 648);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(578, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(695, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -116,16 +117,40 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Utilizador,
             this.Sala,
             this.Software,
             this.Data_de_instalação,
             this.Hora_de_Instalação,
             this.Tipo_de_Licença});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 130);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 223);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(549, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(648, 400);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 47);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // nome
+            // 
+            this.nome.Location = new System.Drawing.Point(932, 44);
+            this.nome.Name = "nome";
+            this.nome.Size = new System.Drawing.Size(19, 22);
+            this.nome.TabIndex = 4;
+            // 
+            // Utilizador
+            // 
+            this.Utilizador.HeaderText = "Utilizador";
+            this.Utilizador.Name = "Utilizador";
+            this.Utilizador.ReadOnly = true;
             // 
             // Sala
             // 
@@ -157,30 +182,13 @@
             this.Tipo_de_Licença.Name = "Tipo_de_Licença";
             this.Tipo_de_Licença.ReadOnly = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 47);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // nome
-            // 
-            this.nome.Location = new System.Drawing.Point(932, 44);
-            this.nome.Name = "nome";
-            this.nome.Size = new System.Drawing.Size(19, 22);
-            this.nome.TabIndex = 4;
-            // 
             // consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(578, 592);
+            this.ClientSize = new System.Drawing.Size(695, 670);
             this.Controls.Add(this.nome);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
@@ -211,11 +219,12 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.TextBox nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Utilizador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sala;
         private System.Windows.Forms.DataGridViewTextBoxColumn Software;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_de_instalação;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hora_de_Instalação;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_de_Licença;
-        private System.Windows.Forms.TextBox nome;
     }
 }
