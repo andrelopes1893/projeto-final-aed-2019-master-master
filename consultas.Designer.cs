@@ -123,7 +123,7 @@
             this.Data_de_instalação,
             this.Hora_de_Instalação,
             this.Tipo_de_Licença});
-            this.dataGridView1.Location = new System.Drawing.Point(178, 124);
+            this.dataGridView1.Location = new System.Drawing.Point(172, 146);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(653, 400);
