@@ -15,6 +15,9 @@ namespace projeto_final
     {
         StreamReader sr;
         string notificações = @"notificaçoes.txt";
+        string diretorio = @"diretorio/";
+        string salas = @"salas.txt";
+        string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
 
         public consultar_notificaçoes()
         {
@@ -25,7 +28,18 @@ namespace projeto_final
         {
             timer1.Enabled = true;
 
-            string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
+            if (Directory.Exists(diretorio))
+            {
+                sr = File.OpenText(diretorio + salas);
+                string linha;
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    comboBox1.Items.Add(linha);
+                }
+                sr.Close();
+            }
+
+            
             string fila = "";
             int numli = 0; //variavel para mudar linha
             sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
