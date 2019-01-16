@@ -97,12 +97,12 @@ namespace projeto_final
 
         private void label1_Click(object sender, EventArgs e)
         {
-            label1.Text = DateTime.Now.ToString("hh:mm:ss");
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            label2.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
