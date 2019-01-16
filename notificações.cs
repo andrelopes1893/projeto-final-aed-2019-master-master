@@ -14,7 +14,8 @@ namespace projeto_final
     public partial class notificações : Form
     {
         string diretorio = @"diretorio/";
-        string notificaçoes = @"notificaçoes";
+        string notificaçoes = @"notificaçoes.txt";
+        StreamWriter sw;
 
         public notificações()
         {
@@ -117,10 +118,9 @@ namespace projeto_final
             //CRIAR FICHEIRO QUE RECEBE AS NOTIFICAÇÕES DOS DOCENTES
             if (File.Exists(notificaçoes))
             {
-                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + ";" + textBox4.Text + ";" + label1.Text + ";" + label2.Text + ";" + textBox7.Text + ";");
+                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + label1.Text + ";" + label2.Text + ";" + textBox7.Text + ";");
 
                 //Adiciona no ficheiro 
-                StreamWriter sw;
                 sw = File.AppendText(notificaçoes);
                 sw.WriteLine(linha);
                 sw.Close();
@@ -128,15 +128,16 @@ namespace projeto_final
             else
             {
                 //cria o ficheiro
-                File.Create(notificaçoes);
-                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + ";" + textBox4.Text + ";" + label1.Text + ";" + label2.Text + ";" + textBox7.Text + ";");
+                File.CreateText(notificaçoes);
+                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + label1.Text + ";" + label2.Text + ";" + textBox7.Text + ";");
 
                 //Adiciona no ficheiro 
-                StreamWriter sw;
                 sw = File.AppendText(notificaçoes);
                 sw.WriteLine(linha);
                 sw.Close();
             }
+            button1.Enabled = false;
+            MessageBox.Show("Notificação criada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void nome_TextChanged(object sender, EventArgs e)
