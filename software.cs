@@ -103,31 +103,35 @@ namespace projeto_final
         //CRIAR FICHEIRO QUE RECEBE O SOFTWARE
         private void button2_Click(object sender, EventArgs e)
         {
-            //se o ficheiro pretendido existir
-            if (File.Exists(diretorio + comboBox2.Text + ".txt"))
+            //se uma das condiçoes se verificar, aparece a message box 
+            if (textBox1.Text == "" || comboBox2.Text == "" || comboBox1.Text == "")
             {
-                //estrutura da linha a adicionar no ficheiro selecionado 
-                string linha = (textBox1.Text + ";" + data + ";" + hora + ";" + comboBox1.Text);
-                //se uma das condiçoes se verificar, aparece a message box
-                if (textBox1.Text == "" || comboBox2.Text == "" || comboBox1.Text == "")
+                MessageBox.Show("Os requisitos válidos para adicionar software não se encontram preenchidos", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //se o ficheiro pretendido existir
+            else
+            {
+                if (File.Exists(diretorio + comboBox2.Text + ".txt") == true)
                 {
-                    MessageBox.Show("Os requisitos válidos para adicionar software não se encontram preenchidos", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                //caso contraio, o codigo é executado
-                else
-                {
+                    //estrutura da linha a adicionar no ficheiro selecionado 
+                    string linha = (textBox1.Text + ";" + data + ";" + hora + ";" + comboBox1.Text);
+
+                    //caso contraio, o codigo é executado
+
                     //Adiciona no ficheiro 
                     sw = File.AppendText(diretorio + comboBox2.Text + ".txt");
                     sw.WriteLine(linha);
                     sw.Close();
                     button2.Enabled = false;
+                    MessageBox.Show("Software registado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                //se o ficheiro (nome da sala) pretendido não existir
+                else
+                {
+                    MessageBox.Show("A Sala não existe!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            //se o ficheiro(nome da sala) pretendido não existir
-            else
-            {
-                MessageBox.Show("A Sala não existe!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }             
         }
 
         private void button1_Click(object sender, EventArgs e)
