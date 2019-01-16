@@ -161,12 +161,12 @@ namespace projeto_final
             string li;
             StreamReader sr = File.OpenText(contas);
            
-                while ((li = sr.ReadLine()) != null)
-                {
-                    cont++;
-                }
+            while ((li = sr.ReadLine()) != null)
+            {
+                cont++;
+            }
 
-                sr.Close();
+            sr.Close();
 
             if (File.ReadAllText(contas) != "")
             {
