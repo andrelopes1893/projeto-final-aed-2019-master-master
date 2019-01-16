@@ -136,26 +136,38 @@ namespace projeto_final
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamReader sr;
-            //verifica se a pasta "diretorio" existe e caso exista, executa o codigo
-            if (Directory.Exists(diretorio))
+            if (comboBox2.Text == "")
             {
-                //abre o texto do ficheiro
-                sr = File.OpenText(diretorio + comboBox2.Text + ".txt");
-                string linha;
-                while ((linha = sr.ReadLine()) != null)
-                {
-                    //adiciona o texto do ficheiro selecionado, à listbox1
-                    listBox1.Items.Add(linha);
-                }
-                sr.Close();
+                MessageBox.Show("Selecione uma sala para verificar software!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //caso nao exista, da mensagem de erro!
             else
             {
-                MessageBox.Show("O ficheiro não fez upload ou está vazio!", "Erro no Upload", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                StreamReader sr;
+                //verifica se a pasta "diretorio" existe e caso exista, executa o codigo
+                if (Directory.Exists(diretorio))
+                {
+                    //abre o texto do ficheiro
+                    sr = File.OpenText(diretorio + comboBox2.Text + ".txt");
+                    string linha;
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        //adiciona o texto do ficheiro selecionado, à listbox1
+                        listBox1.Items.Add(linha);
+                    }
+                    sr.Close();
+                }
+                //caso nao exista, da mensagem de erro!
+                else
+                {
+                    MessageBox.Show("O ficheiro não fez upload ou está vazio!", "Erro no Upload", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                button1.Enabled = false;
             }
-            button1.Enabled = false;
+        }
+
+        private void comboBox2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -212,6 +212,7 @@
             this.comboBox2.Size = new System.Drawing.Size(270, 24);
             this.comboBox2.TabIndex = 14;
             this.comboBox2.UseWaitCursor = true;
+            this.comboBox2.Click += new System.EventHandler(this.comboBox2_Click);
             // 
             // software
             // 
