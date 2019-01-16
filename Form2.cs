@@ -98,5 +98,12 @@ namespace projeto_final
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            consultar_notificaçoes form10 = new consultar_notificaçoes();
+            form10.Show();
+            this.Hide();
+        }
     }
 }

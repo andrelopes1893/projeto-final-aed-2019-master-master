@@ -58,6 +58,12 @@
     <Compile Include="assuntos.Designer.cs">
       <DependentUpon>assuntos.cs</DependentUpon>
     </Compile>
+    <Compile Include="consultar_notificaçoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consultar_notificaçoes.Designer.cs">
+      <DependentUpon>consultar_notificaçoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="consultas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="assuntos.resx">
       <DependentUpon>assuntos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="consultar_notificaçoes.resx">
+      <DependentUpon>consultar_notificaçoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="consultas.resx">
       <DependentUpon>consultas.cs</DependentUpon>
