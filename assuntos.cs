@@ -50,9 +50,9 @@ namespace projeto_final
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            //faz com que quando se carrega na "tool strip menu item 3", se volta para o form2
-            Form2 form2 = new Form2();
-            form2.Show();
+            //faz com que quando se carrega na "tool strip menu item 3", se volta para o form administrador
+            Administrador form7 = new Administrador();
+            form7.Show();
             this.Hide();
         }
 
