@@ -84,17 +84,16 @@ namespace projeto_final
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            //criaçao da pasta onde se vao guardar as salas
             if (!Directory.Exists(diretorio))
             {
                 Directory.CreateDirectory(diretorio);
             }
 
-
-
             //escrever no ficheiro salas.txt a sala que é adicionada à listbox2 atraves da textbox2
             var linha = textBox2.Text;
 
-            if (listBox2.Items.Contains(diretorio + textBox2.Text) != true)
+            if (listBox2.Items.Contains(textBox2.Text) != true)
             {
                 StreamWriter sw;
                 if (File.Exists(diretorio + salas) == true)
@@ -111,6 +110,7 @@ namespace projeto_final
             {
                 MessageBox.Show("Sala já existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            textBox2.Clear();
         }
 
 
