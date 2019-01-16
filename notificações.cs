@@ -15,6 +15,8 @@ namespace projeto_final
     {
         string diretorio = @"diretorio/";
         string notificaçoes = @"notificaçoes.txt";
+        string data = DateTime.Today.ToString("dd/MM/yyyy");
+        string hora = DateTime.Now.ToString("hh:mm:ss");
         StreamWriter sw;
 
         public notificações()
@@ -118,7 +120,7 @@ namespace projeto_final
             //CRIAR FICHEIRO QUE RECEBE AS NOTIFICAÇÕES DOS DOCENTES
             if (File.Exists(notificaçoes))
             {
-                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + label1.Text + ";" + label2.Text + ";" + textBox7.Text + ";");
+                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + data + ";" + hora + ";" + textBox7.Text + ";");
 
                 //Adiciona no ficheiro 
                 sw = File.AppendText(notificaçoes);
@@ -129,7 +131,7 @@ namespace projeto_final
             {
                 //cria o ficheiro
                 File.CreateText(notificaçoes);
-                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + label1.Text + ";" + label2.Text + ";" + textBox7.Text + ";");
+                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + data + ";" + hora + ";" + textBox7.Text + ";");
 
                 //Adiciona no ficheiro 
                 sw = File.AppendText(notificaçoes);
