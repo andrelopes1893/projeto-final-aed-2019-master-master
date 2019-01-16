@@ -39,15 +39,15 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Docente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notificaçoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Inicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Final = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -125,21 +125,23 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Docente,
+            this.Utilizador,
             this.Sala,
+            this.Notificaçoes,
             this.Data_Inicial,
-            this.Data_Final});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 110);
+            this.Estado});
+            this.dataGridView1.Location = new System.Drawing.Point(60, 119);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(450, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(858, 299);
             this.dataGridView1.TabIndex = 3;
             // 
-            // Docente
+            // Utilizador
             // 
-            this.Docente.HeaderText = "Docente";
-            this.Docente.Name = "Docente";
-            this.Docente.ReadOnly = true;
+            this.Utilizador.HeaderText = "Docente";
+            this.Utilizador.Name = "Utilizador";
+            this.Utilizador.ReadOnly = true;
+            this.Utilizador.Width = 150;
             // 
             // Sala
             // 
@@ -147,25 +149,32 @@
             this.Sala.Name = "Sala";
             this.Sala.ReadOnly = true;
             // 
+            // Notificaçoes
+            // 
+            this.Notificaçoes.HeaderText = "Notificações";
+            this.Notificaçoes.Name = "Notificaçoes";
+            this.Notificaçoes.ReadOnly = true;
+            this.Notificaçoes.Width = 350;
+            // 
             // Data_Inicial
             // 
             this.Data_Inicial.HeaderText = "Data Inicial";
             this.Data_Inicial.Name = "Data_Inicial";
             this.Data_Inicial.ReadOnly = true;
             // 
-            // Data_Final
+            // Estado
             // 
-            this.Data_Final.HeaderText = "Data Final";
-            this.Data_Final.Name = "Data_Final";
-            this.Data_Final.ReadOnly = true;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
-            // pictureBox2
+            // panel1
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(470, 110);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(500, 500);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(60, 439);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(858, 218);
+            this.panel1.TabIndex = 4;
             // 
             // consultar_notificaçoes
             // 
@@ -173,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(982, 703);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
@@ -186,7 +195,6 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,10 +211,11 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Docente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Utilizador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sala;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Notificaçoes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_Inicial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Final;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Panel panel1;
     }
 }

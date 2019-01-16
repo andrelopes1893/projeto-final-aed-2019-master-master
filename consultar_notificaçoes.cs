@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace projeto_final
 {
     public partial class consultar_notificaçoes : Form
     {
+        StreamReader sr;
+        string notificações = @"notificaçoes.txt";
+
         public consultar_notificaçoes()
         {
             InitializeComponent();
@@ -20,6 +24,30 @@ namespace projeto_final
         private void consultar_notificaçoes_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+
+            string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
+            string fila = "";
+            int numli = 0; //variavel para mudar linha
+            sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
+
+            while ((fila = sr.ReadLine()) != null)
+            {
+                string[] fill = fila.Split(';'); // divide as partes da string por ";"
+
+                if (File.Exists(notificações))
+                {
+                    dataGridView1.Rows.Add(1); //adiciona linha à datagridview
+
+                    dataGridView1[0, numli].Value = fill[0];
+                    dataGridView1[1, numli].Value = fill[1];
+                    dataGridView1[2, numli].Value = fill[4];
+                    dataGridView1[3, numli].Value = fill[5];
+                    dataGridView1[4, numli].Value = fill[7];
+
+                    numli++; //variavel contadora aumenta
+                }
+            }
+            sr.Close(); //fecha o streamreader
         }
 
         private void timer1_Tick(object sender, EventArgs e)
