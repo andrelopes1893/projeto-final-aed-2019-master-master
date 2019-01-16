@@ -139,7 +139,7 @@ namespace projeto_final
                 sw.Close();
             }
             button1.Enabled = false;
-            MessageBox.Show("Software registado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Notificação enviada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void nome_TextChanged(object sender, EventArgs e)
