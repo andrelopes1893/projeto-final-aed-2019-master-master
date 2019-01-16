@@ -219,6 +219,7 @@ namespace projeto_final
                     MessageBox.Show("Username já existe!", "Username existente!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            //limpa as textbox's
             nome1.Clear();
             email1.Clear();
             passe1.Clear();
