@@ -106,7 +106,7 @@ namespace projeto_final
             //se uma das condiçoes se verificar, aparece a message box 
             if (textBox1.Text == "" || comboBox2.Text == "" || comboBox1.Text == "")
             {
-                MessageBox.Show("Os requisitos válidos para adicionar software não se encontram preenchidos", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Os requisitos válidos para adicionar software não se encontram preenchidos.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //se o ficheiro pretendido existir
             else
@@ -161,13 +161,13 @@ namespace projeto_final
                 {
                     MessageBox.Show("O ficheiro não fez upload ou está vazio!", "Erro no Upload", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                button1.Enabled = false;
             }
         }
 
         private void comboBox2_Click(object sender, EventArgs e)
         {
-            
+            //sempre que se seleciona uma sala na comboBox1, faz-se refresh na listbox ficando esta vazia
+            listBox1.Items.Clear();
         }
     }
 }
