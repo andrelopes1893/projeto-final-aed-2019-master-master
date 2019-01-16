@@ -40,8 +40,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nome = new System.Windows.Forms.TextBox();
-            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.Software = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_de_instalação = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hora_de_Instalação = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,16 +119,14 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Utilizador,
-            this.Sala,
             this.Software,
             this.Data_de_instalação,
             this.Hora_de_Instalação,
             this.Tipo_de_Licença});
-            this.dataGridView1.Location = new System.Drawing.Point(172, 146);
+            this.dataGridView1.Location = new System.Drawing.Point(31, 115);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(653, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(652, 400);
             this.dataGridView1.TabIndex = 2;
             // 
             // pictureBox1
@@ -146,23 +146,44 @@
             this.nome.Size = new System.Drawing.Size(19, 22);
             this.nome.TabIndex = 4;
             // 
-            // Utilizador
+            // label1
             // 
-            this.Utilizador.HeaderText = "Utilizador";
-            this.Utilizador.Name = "Utilizador";
-            this.Utilizador.ReadOnly = true;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(60, 556);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 34);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Sala :";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Sala
+            // comboBox1
             // 
-            this.Sala.HeaderText = "Sala";
-            this.Sala.Name = "Sala";
-            this.Sala.ReadOnly = true;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(170, 566);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(215, 24);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(741, 600);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(210, 55);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Consultar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Software
             // 
             this.Software.HeaderText = "Software";
             this.Software.Name = "Software";
             this.Software.ReadOnly = true;
+            this.Software.Width = 200;
             // 
             // Data_de_instalação
             // 
@@ -181,6 +202,7 @@
             this.Tipo_de_Licença.HeaderText = "Tipo de Licença";
             this.Tipo_de_Licença.Name = "Tipo_de_Licença";
             this.Tipo_de_Licença.ReadOnly = true;
+            this.Tipo_de_Licença.Width = 200;
             // 
             // consultas
             // 
@@ -189,6 +211,9 @@
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.nome);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
@@ -220,8 +245,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.TextBox nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Utilizador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sala;
+        private System.Windows.Forms.Label label1;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Software;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_de_instalação;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hora_de_Instalação;
