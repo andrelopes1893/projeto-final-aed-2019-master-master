@@ -152,9 +152,9 @@ namespace projeto_final
                     while ((linha = sr.ReadLine()) != null)
                     {
                         //adiciona o texto do ficheiro selecionado, à listbox1
-                        listBox1.Items.Add(linha);
+                        listBox1.Items.Add(linha);                        
                     }
-                    sr.Close();
+                    sr.Close();                    
                 }
                 //caso nao exista, da mensagem de erro!
                 else
