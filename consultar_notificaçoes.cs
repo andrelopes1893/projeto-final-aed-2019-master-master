@@ -39,29 +39,15 @@ namespace projeto_final
                 sr.Close();
             }
 
-            
-            string fila = "";
-            int numli = 0; //variavel para mudar linha
-            sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
-
-            while ((fila = sr.ReadLine()) != null)
+            if (variaveis.id == 0 || variaveis.id == 1)
             {
-                string[] fill = fila.Split(';'); // divide as partes da string por ";"
-
-                if (File.Exists(notificações))
-                {
-                    dataGridView1.Rows.Add(1); //adiciona linha à datagridview
-
-                    dataGridView1[0, numli].Value = fill[0];
-                    dataGridView1[1, numli].Value = fill[1];
-                    dataGridView1[2, numli].Value = fill[4];
-                    dataGridView1[3, numli].Value = fill[5];
-                    dataGridView1[4, numli].Value = fill[7];
-
-                    numli++; //variavel contadora aumenta
-                }
+                textBox1.Enabled = true;
             }
-            sr.Close(); //fecha o streamreader
+            else
+            {
+                textBox1.Enabled = false;
+                textBox1.Text = variaveis.nomeut;
+            }            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -96,6 +82,33 @@ namespace projeto_final
             Form2 form2 = new Form2();
             form2.Show();
             this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string fila = "";
+            int numli = 0; //variavel para mudar linha
+            sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
+
+            while ((fila = sr.ReadLine()) != null)
+            {
+                string[] fill = fila.Split(';'); // divide as partes da string por ";"
+
+                if (File.Exists(notificações))
+                {
+                    dataGridView1.Rows.Add(1); //adiciona linha à datagridview
+
+                    dataGridView1[0, numli].Value = fill[0];
+                    dataGridView1[1, numli].Value = fill[1];
+                    dataGridView1[2, numli].Value = fill[4];
+                    dataGridView1[3, numli].Value = fill[5];
+                    dataGridView1[4, numli].Value = fill[6];
+                    dataGridView1[5, numli].Value = fill[7];
+
+                    numli++; //variavel contadora aumenta
+                }
+            }
+            sr.Close(); //fecha o streamreader
         }
     }
 }
