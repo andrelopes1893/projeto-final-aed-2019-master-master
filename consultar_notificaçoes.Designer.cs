@@ -220,6 +220,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(220, 22);
             this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.Value = new System.DateTime(2019, 1, 24, 0, 0, 0, 0);
             // 
             // comboBox1
             // 
@@ -265,7 +266,6 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Consultar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker2
             // 
@@ -273,6 +273,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(220, 22);
             this.dateTimePicker2.TabIndex = 9;
+            this.dateTimePicker2.Value = new System.DateTime(2019, 1, 18, 0, 0, 0, 0);
             // 
             // label5
             // 

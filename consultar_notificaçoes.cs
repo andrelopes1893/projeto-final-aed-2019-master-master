@@ -100,60 +100,7 @@ namespace projeto_final
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
 
-            if (radioButton1.Checked == true)
-            {
-                linha = "Pendente"; //notificaçao pendente
-            }
-            if (radioButton2.Checked == true)
-            {
-                linha = "Concluido"; //notificaçao concluida
-            }
-
-            if (valido(linha) == true)
-            {
-                dataGridView1.Rows.Clear(); //Elimina o conteudo existente na datagridview.
-                string fila = "";
-                int numli = 0; //variavel para mudar linha
-                sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
-
-                while ((fila = sr.ReadLine()) != null)
-                {
-                    string[] fill = fila.Split(';'); // divide as partes da string por ";"
-
-                    if (File.Exists(notificações))
-                    {
-                        if (fill[7] == linha)
-                        {
-                            if (linha == "Concluido")
-                            {
-                                dataGridView1.Rows.Add(1); //adiciona linha à datagridview
-
-                                dataGridView1[0, numli].Value = fill[0];
-                                dataGridView1[1, numli].Value = fill[1];
-                                dataGridView1[2, numli].Value = fill[4];
-                                dataGridView1[3, numli].Value = fill[5];
-                                dataGridView1[4, numli].Value = fill[6];
-                                dataGridView1[5, numli].Value = fill[7];
-                            }
-                            if (linha == "Pendente")
-                            {
-                                dataGridView1.Rows.Add(1); //adiciona linha à datagridview
-
-                                dataGridView1[0, numli].Value = fill[0];
-                                dataGridView1[1, numli].Value = fill[1];
-                                dataGridView1[2, numli].Value = fill[4];
-                                dataGridView1[3, numli].Value = fill[5];
-                                dataGridView1[4, numli].Value = fill[6];
-                                dataGridView1[5, numli].Value = fill[7];
-                            }
-                            numli++; //variavel contadora aumenta
-                        }
-                    }
-                }
-                sr.Close(); //fecha o streamreader
-            }
         }
     }
 }
