@@ -92,25 +92,32 @@ namespace projeto_final
 
             //escrever no ficheiro salas.txt a sala que é adicionada à listbox2 atraves da textbox2
             var linha = textBox2.Text;
-
-            if (listBox2.Items.Contains(textBox2.Text) != true)
+            if (textBox2.Text == "")
             {
-                StreamWriter sw;
-                if (File.Exists(diretorio + salas) == true)
-                {                    
-                    sw = File.AppendText(diretorio + salas);
-                    sw.WriteLine(linha);
-                    sw.Close();
-                }
-                listBox2.Items.Add(textBox2.Text); //adiciona à listbox2 o conteudo escrito na textbox1
-                sw = File.CreateText(diretorio + textBox2.Text + ".txt");
-                sw.Close();
+                MessageBox.Show("Escreva uma sala!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Sala já existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            textBox2.Clear();
+                if (listBox2.Items.Contains(textBox2.Text) != true)
+                {
+                    StreamWriter sw;
+                    if (File.Exists(diretorio + salas) == true)
+                    {
+                        sw = File.AppendText(diretorio + salas);
+                        sw.WriteLine(linha);
+                        sw.Close();
+                    }
+                    listBox2.Items.Add(textBox2.Text); //adiciona à listbox2 o conteudo escrito na textbox1
+                    sw = File.CreateText(diretorio + textBox2.Text + ".txt");
+                    sw.Close();
+                    MessageBox.Show("Sala criada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Sala já existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                textBox2.Clear();
+            }            
         }
 
 
