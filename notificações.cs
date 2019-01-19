@@ -117,29 +117,40 @@ namespace projeto_final
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //CRIAR FICHEIRO QUE RECEBE AS NOTIFICAÇÕES DOS DOCENTES
-            if (File.Exists(notificaçoes))
+            if (comboBox1.Text == "")
             {
-                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + data + ";" + hora + ";" + textBox7.Text + ";");
-
-                //Adiciona no ficheiro 
-                sw = File.AppendText(notificaçoes);
-                sw.WriteLine(linha);
-                sw.Close();
+                MessageBox.Show("Preencha o assunto em falta!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (textBox4.Text == "")
+            {
+                MessageBox.Show("Preencha o comentário em falta!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                //cria o ficheiro
-                File.CreateText(notificaçoes);
-                string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + data + ";" + hora + ";" + textBox7.Text + ";");
+                //CRIAR FICHEIRO QUE RECEBE AS NOTIFICAÇÕES DOS DOCENTES
+                if (File.Exists(notificaçoes))
+                {
+                    string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + data + ";" + hora + ";" + textBox7.Text + ";");
 
-                //Adiciona no ficheiro 
-                sw = File.AppendText(notificaçoes);
-                sw.WriteLine(linha);
-                sw.Close();
+                    //Adiciona no ficheiro 
+                    sw = File.AppendText(notificaçoes);
+                    sw.WriteLine(linha);
+                    sw.Close();
+                }
+                else
+                {
+                    //cria o ficheiro
+                    File.CreateText(notificaçoes);
+                    string linha = (textBox1.Text + ";" + comboBox2.Text + ";" + comboBox1.Text + textBox4.Text + ";" + data + ";" + hora + ";" + textBox7.Text + ";");
+
+                    //Adiciona no ficheiro 
+                    sw = File.AppendText(notificaçoes);
+                    sw.WriteLine(linha);
+                    sw.Close();
+                }
+                button1.Enabled = false;
+                MessageBox.Show("Notificação enviada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            button1.Enabled = false;
-            MessageBox.Show("Notificação enviada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void nome_TextChanged(object sender, EventArgs e)

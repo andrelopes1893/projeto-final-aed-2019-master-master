@@ -92,6 +92,7 @@ namespace projeto_final
 
             //escrever no ficheiro salas.txt a sala que é adicionada à listbox2 atraves da textbox2
             var linha = textBox2.Text;
+            //se a textbox estiver vazia da erro!
             if (textBox2.Text == "")
             {
                 MessageBox.Show("Escreva uma sala!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -123,33 +124,39 @@ namespace projeto_final
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            
-            
-            //remover linha do ficheiro salas.txt que tem o texto igual à sala selecionada da listBox2
-            if (File.Exists(diretorio + salas))
+            //se nenhuma sala for selecionada
+            if (listBox2.SelectedItem == null)
             {
-                File.Delete(diretorio + listBox2.SelectedItem + ".txt");
-                
-                //remove o conteudo da listbox2 que nesta foi selecionado
-                listBox2.Items.Remove(listBox2.SelectedItem);
-
-                File.Delete(diretorio + salas);
-
-                StreamWriter sw1 = File.CreateText(diretorio + salas);
-                sw1.Close();
-
-                StreamWriter sw2 = File.AppendText(diretorio + salas);
-                for (int i = 0; i < listBox2.Items.Count; i++)
-                {
-                    sw2.WriteLine(listBox2.Items[i].ToString());
-                }
-                sw2.Close();
-
-                MessageBox.Show("Sala removida com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma sala!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("A sala " + listBox2.SelectedItem + " não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //remover linha do ficheiro salas.txt que tem o texto igual à sala selecionada da listBox2
+                if (File.Exists(diretorio + salas))
+                {
+                    File.Delete(diretorio + listBox2.SelectedItem + ".txt");
+
+                    //remove o conteudo da listbox2 que nesta foi selecionado
+                    listBox2.Items.Remove(listBox2.SelectedItem);
+
+                    File.Delete(diretorio + salas);
+
+                    StreamWriter sw1 = File.CreateText(diretorio + salas);
+                    sw1.Close();
+
+                    StreamWriter sw2 = File.AppendText(diretorio + salas);
+                    for (int i = 0; i < listBox2.Items.Count; i++)
+                    {
+                        sw2.WriteLine(listBox2.Items[i].ToString());
+                    }
+                    sw2.Close();
+
+                    MessageBox.Show("Sala removida com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("A sala " + listBox2.SelectedItem + " não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

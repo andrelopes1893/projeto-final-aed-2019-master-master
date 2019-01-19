@@ -66,47 +66,61 @@ namespace projeto_final
            
             //escreve no ficheiro topicosdeassuntos.txt o assunto que é adicionado à listbox1 atraves da textbox1
             var linha = textBox1.Text;
-            
-            if (listBox1.Items.Contains(textBox1.Text) != true)
+            //se a textbox estiver vazia da erro!
+            if (textBox1.Text == "")
             {
-                if (File.Exists(topicosdeassuntos) == true)
-                {
-                    string[] linha1 = File.ReadAllLines(topicosdeassuntos);
-                    int maior = -999;
-                    for (int i = 0; i < linha1.Length; i++)
-                    {
-                        if (Convert.ToInt16(linha1[i].Split(';')[0]) > maior)
-                        {
-                            maior = Convert.ToInt16(linha1[i].Split(';')[0]);
-                        }
-                    }
-                    variaveis.contador = maior + 1;
-                    StreamWriter sw;
-                    sw = File.AppendText(topicosdeassuntos);
-                    sw.WriteLine(variaveis.contador + "; " + linha + ";");
-                    sw.Close();
-                }
-                listBox1.Items.Add(variaveis.contador + "; " + textBox1.Text + ";"); //adiciona à listbox1 o conteudo escrito na textbox1
-                textBox1.Clear();
-                textBox1.Focus();
+                MessageBox.Show("Escreva um assunto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-            {
-                MessageBox.Show("Item já existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            { 
+                if (listBox1.Items.Contains(textBox1.Text) != true)
+                {
+                    if (File.Exists(topicosdeassuntos) == true)
+                    {
+                        string[] linha1 = File.ReadAllLines(topicosdeassuntos);
+                        int maior = -999;
+                        for (int i = 0; i < linha1.Length; i++)
+                        {
+                            if (Convert.ToInt16(linha1[i].Split(';')[0]) > maior)
+                            {
+                                maior = Convert.ToInt16(linha1[i].Split(';')[0]);
+                            }
+                        }
+                        variaveis.contador = maior + 1;
+                        StreamWriter sw;
+                        sw = File.AppendText(topicosdeassuntos);
+                        sw.WriteLine(variaveis.contador + "; " + linha + ";");
+                        sw.Close();
+                    }
+                    listBox1.Items.Add(variaveis.contador + "; " + textBox1.Text + ";"); //adiciona à listbox1 o conteudo escrito na textbox1
+                    textBox1.Clear();
+                    textBox1.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Item já existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //remove o conteudo da listbox1 que nesta foi selecionado
-            listBox1.Items.Remove(listBox1.SelectedItem);
-
-            //remove linha do ficheiro topicosdeassuntos.txt que tem o texto igual à sala selecionada da listBox2
-            if (File.Exists(topicosdeassuntos))
+            //se nenhuma sala for selecionada
+            if (listBox1.SelectedItem == null)
             {
-                for (int i = 0; i < listBox1.Items.Count; i++)
+                MessageBox.Show("Selecione um assunto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                //remove o conteudo da listbox1 que nesta foi selecionado
+                listBox1.Items.Remove(listBox1.SelectedItem);
+
+                //remove linha do ficheiro topicosdeassuntos.txt que tem o texto igual à sala selecionada da listBox2
+                if (File.Exists(topicosdeassuntos))
                 {
-                    //Confirmação se a sala se encontra no sistema
+                    for (int i = 0; i < listBox1.Items.Count; i++)
+                    {
+                        //Confirmação se a sala se encontra no sistema
                         //Se estiver registada no sistema, apaga todo o texto do ficheiro topicosdeassuntos.txt e volta a escrever de acordo com a listbox1, sem a sala que se removeu.
                         string linha;
                         listBox1.Items.Remove(listBox1.SelectedItem);
@@ -123,14 +137,15 @@ namespace projeto_final
                         }
                         sw.Close();
                         MessageBox.Show("Assunto removido com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        goto end;                    
+                        goto end;
+                    }
+                    MessageBox.Show("O Assunto selecionado não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                end:;
                 }
-                MessageBox.Show("O Assunto selecionado não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            end:;
-            }
-            else
-            {
-                MessageBox.Show("O Assunto selecionado não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("O Assunto selecionado não se encontra no ficheiro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

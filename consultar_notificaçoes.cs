@@ -17,9 +17,13 @@ namespace projeto_final
         string notificações = @"notificaçoes.txt";
         string diretorio = @"diretorio/";
         string salas = @"salas.txt";
+        string comentarios = @"comentarios.txt";
         string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
         string fila = "";
-        
+        string data = DateTime.Today.ToString("dd/MM/yyyy");
+        string hora = DateTime.Now.ToString("hh:mm:ss");
+        int i;
+
 
         public consultar_notificaçoes()
         {
@@ -29,6 +33,7 @@ namespace projeto_final
         private void consultar_notificaçoes_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            label8.Text = variaveis.nomeut;
 
             if (Directory.Exists(diretorio))
             {
@@ -36,7 +41,7 @@ namespace projeto_final
                 string linha;
                 while ((linha = sr.ReadLine()) != null)
                 {
-                    comboBox1.Items.Add(diretorio+salas);
+                    comboBox1.Items.Add(linha);
                 }
                 sr.Close();
             }
@@ -59,12 +64,14 @@ namespace projeto_final
             {
                 comboBox2.Enabled = true;
                 panel2.Visible = true;
+                Estado.ReadOnly = false;
             }
             else
             {
                 comboBox2.Enabled = false;
                 comboBox2.Text = variaveis.nomeut;
                 panel2.Visible = false;
+                Estado.ReadOnly = true;
             }            
         }
 
@@ -102,7 +109,7 @@ namespace projeto_final
             this.Hide();
         }
 
-        // criação do Método que vai confirmar se o usurio escolheu alguma opção dos radiobuttons
+        //criação do Método que vai confirmar se o usurio escolheu alguma opção dos radiobuttons
         public bool valido(string linha)
         {
             if (linha != "Pendente" && linha != "Concluido")
@@ -126,77 +133,54 @@ namespace projeto_final
 
         }
 
+        //BOTÃO DE ENVIAR RESPOSTA
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StreamReader sr = File.OpenText(notificações);
+            string linha3 = "";
+            while ((linha3 = sr.ReadLine()) != null)
+            {
+                string[] words = linha.Split(';');
+                //para confirmar
+                if ((dataGridView1[0, i].Value.ToString() == words[0]) && (dataGridView1[1, i].Value.ToString() == words[1]) &&
+                    (dataGridView1[4, i].Value.ToString() == words[4]) && (dataGridView1[5, i].Value.ToString() == words[5]) &&
+                    (dataGridView1[6, i].Value.ToString() == words[6]) && (words[7] == ""));
+                {
+                    //após se confirmar a condição anterior, o texto é todo apagado e reinscrito já com a resposta
+                    dataGridView1[6, i].Value = "Concluido";
+                    sr.Close();
+                    File.WriteAllText(notificações, "");
+                    StreamWriter sw = File.AppendText(notificações);
+                    for (int y = 0; y < dataGridView1.Rows.Count - 1; y++)
+                    {
+                        int index = dataGridView1.CurrentCell.RowIndex;
+                        if (y == index)
+                        {
+                            sw.WriteLine(dataGridView1[0, y].Value.ToString() + ";" + dataGridView1[1, y].Value.ToString() + ";" + dataGridView1[2, y].Value.ToString() + ";" +
+                                         dataGridView1[3, y].Value.ToString() + ";" + dataGridView1[4, y].Value.ToString() + ";" + dataGridView1[5, y].Value.ToString() + ";" +
+                                         dataGridView1[6, y].Value.ToString() + ";" + "Resposta de:" + label8.Text + ";" + "Resposta:" + textBox2.Text + ";" + data + ";" + hora);
+                        }
+                        else
+                        {
+                            sw.WriteLine(dataGridView1[0, y].Value.ToString() + ";" + dataGridView1[1, y].Value.ToString() + ";" + dataGridView1[2, y].Value.ToString() + ";" +
+                                         dataGridView1[3, y].Value.ToString() + ";" + dataGridView1[4, y].Value.ToString() + ";" + dataGridView1[5, y].Value.ToString() + ";" +
+                                         dataGridView1[6, y].Value.ToString() + ";" + "Resposta de:" + label8.Text + ";" + "Resposta:" + textBox2.Text + ";" + data + ";" + hora);
+                        }
+                    }
+                    sw.Close();
+                    MessageBox.Show("Resposta Enviada com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        //BOTÃO DAS CONSULTAS (FILTROS) 
         private void button1_Click_1(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear(); //Elimina o conteudo existente na datagridview.
             int numli = 0; //variavel para mudar linha.
             string fila = "";
             sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
-            while ((fila = sr.ReadLine()) != null)
-            {
-                string[] fill = fila.Split(';'); // divide as partes da string por ";"
-
-                if (comboBox2.Text !="")
-                { 
-                    if (comboBox2.Text == fill[0])
-                    {
-                        if (comboBox1.SelectedItem == fill[1])
-                        {
-                            if (dateTimePicker1.Text.ToString() == fill[4])
-                            {
-                                if (dateTimePicker2.Text.ToString() == fill[5])
-                                {
-
-                                }
-                                else if (dateTimePicker2.Text.ToString() == "")
-                                {
-
-                                }
-                            }
-                            else if (dateTimePicker1.Text.ToString() == "")
-                            {
-                                if (dateTimePicker2.Text.ToString() == fill[5])
-                                {
-
-                                }
-                                else if (dateTimePicker2.Text.ToString() == "")
-                                {
-
-                                }
-                            }
-                        }
-                        else if (comboBox1.SelectedItem == "")
-                        {
-                            if (dateTimePicker1.Text.ToString() == fill[4])
-                            {
-                                if (dateTimePicker2.Text.ToString() == fill[5])
-                                {
-
-                                }
-                                else if (dateTimePicker2.Text.ToString() == "")
-                                {
-
-                                }
-                            }
-                            else if (dateTimePicker1.Text.ToString() == "")
-                            {
-                                if (dateTimePicker2.Text.ToString() == fill[5])
-                                {
-
-                                }
-                                else if (dateTimePicker2.Text.ToString() == "")
-                                {
-
-                                }
-                            }
-                        }
-                    }
-                }
-                else if (comboBox2.Text == "")
-                {
-
-                }
-            }
+            
             sr.Close();
         }
     }
