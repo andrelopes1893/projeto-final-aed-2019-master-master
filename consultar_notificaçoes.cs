@@ -47,7 +47,10 @@ namespace projeto_final
                 while ((linha = sr.ReadLine()) != null)
                 {
                     string[] fill = linha.Split(';'); //divide as partes da string por ";"
-                    comboBox2.Items.Add(fill[0]);
+                    if (comboBox2.Items.Contains(fill[0]) == false)
+                    {
+                        comboBox2.Items.Add(fill[0]);
+                    }
                 }
                 sr.Close();
             }
