@@ -136,41 +136,7 @@ namespace projeto_final
         //BOTÃO DE ENVIAR RESPOSTA
         private void button2_Click(object sender, EventArgs e)
         {
-            StreamReader sr = File.OpenText(notificações);
-            string linha3 = "";
-            while ((linha3 = sr.ReadLine()) != null)
-            {
-                string[] words = linha.Split(';');
-                //para confirmar
-                if ((dataGridView1[0, i].Value.ToString() == words[0]) && (dataGridView1[1, i].Value.ToString() == words[1]) &&
-                    (dataGridView1[4, i].Value.ToString() == words[4]) && (dataGridView1[5, i].Value.ToString() == words[5]) &&
-                    (dataGridView1[6, i].Value.ToString() == words[6]) && (words[7] == ""));
-                {
-                    //após se confirmar a condição anterior, o texto é todo apagado e reinscrito já com a resposta
-                    dataGridView1[6, i].Value = "Concluido";
-                    sr.Close();
-                    File.WriteAllText(notificações, "");
-                    StreamWriter sw = File.AppendText(notificações);
-                    for (int y = 0; y < dataGridView1.Rows.Count - 1; y++)
-                    {
-                        int index = dataGridView1.CurrentCell.RowIndex;
-                        if (y == index)
-                        {
-                            sw.WriteLine(dataGridView1[0, y].Value.ToString() + ";" + dataGridView1[1, y].Value.ToString() + ";" + dataGridView1[2, y].Value.ToString() + ";" +
-                                         dataGridView1[3, y].Value.ToString() + ";" + dataGridView1[4, y].Value.ToString() + ";" + dataGridView1[5, y].Value.ToString() + ";" +
-                                         dataGridView1[6, y].Value.ToString() + ";" + "Resposta de:" + label8.Text + ";" + "Resposta:" + textBox2.Text + ";" + data + ";" + hora);
-                        }
-                        else
-                        {
-                            sw.WriteLine(dataGridView1[0, y].Value.ToString() + ";" + dataGridView1[1, y].Value.ToString() + ";" + dataGridView1[2, y].Value.ToString() + ";" +
-                                         dataGridView1[3, y].Value.ToString() + ";" + dataGridView1[4, y].Value.ToString() + ";" + dataGridView1[5, y].Value.ToString() + ";" +
-                                         dataGridView1[6, y].Value.ToString() + ";" + "Resposta de:" + label8.Text + ";" + "Resposta:" + textBox2.Text + ";" + data + ";" + hora);
-                        }
-                    }
-                    sw.Close();
-                    MessageBox.Show("Resposta Enviada com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+            
         }
 
         //BOTÃO DAS CONSULTAS (FILTROS) 
@@ -180,8 +146,29 @@ namespace projeto_final
             int numli = 0; //variavel para mudar linha.
             string fila = "";
             sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
-            
-            sr.Close();
+
+            while ((fila = sr.ReadLine()) != null)
+            {
+                string[] fill = fila.Split(';'); // divide as partes da string por ";"
+
+                dataGridView1.Rows.Add(1); //adiciona linha à datagridview
+
+                dataGridView1[0, numli].Value = fill[0];
+                dataGridView1[1, numli].Value = fill[1];
+                dataGridView1[2, numli].Value = fill[4];
+                dataGridView1[3, numli].Value = fill[5];
+                dataGridView1[4, numli].Value = fill[6];
+                dataGridView1[5, numli].Value = fill[7];
+                numli++; //variavel contadora aumenta
+            }
+                sr.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Resposta_por.Visible = true;
+            Data_da_Resposta.Visible = true;
+            Resposta.Visible = true;
         }
     }
 }

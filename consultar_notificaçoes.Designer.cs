@@ -39,12 +39,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Notificaçoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Inicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Final = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -64,6 +58,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notificaçoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Inicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Final = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_da_Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Resposta_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -151,50 +155,15 @@
             this.Notificaçoes,
             this.Data_Inicial,
             this.Data_Final,
-            this.Estado});
+            this.Estado,
+            this.Resposta,
+            this.Data_da_Resposta,
+            this.Resposta_por});
             this.dataGridView1.Location = new System.Drawing.Point(60, 119);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(858, 299);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // Utilizador
-            // 
-            this.Utilizador.HeaderText = "Utilizador";
-            this.Utilizador.Name = "Utilizador";
-            this.Utilizador.ReadOnly = true;
-            this.Utilizador.Width = 150;
-            // 
-            // Sala
-            // 
-            this.Sala.HeaderText = "Sala";
-            this.Sala.Name = "Sala";
-            this.Sala.ReadOnly = true;
-            // 
-            // Notificaçoes
-            // 
-            this.Notificaçoes.HeaderText = "Notificações";
-            this.Notificaçoes.Name = "Notificaçoes";
-            this.Notificaçoes.ReadOnly = true;
-            this.Notificaçoes.Width = 350;
-            // 
-            // Data_Inicial
-            // 
-            this.Data_Inicial.HeaderText = "Data Inicial";
-            this.Data_Inicial.Name = "Data_Inicial";
-            this.Data_Inicial.ReadOnly = true;
-            // 
-            // Data_Final
-            // 
-            this.Data_Final.HeaderText = "Data Final";
-            this.Data_Final.Name = "Data_Final";
-            this.Data_Final.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
             // 
             // panel1
             // 
@@ -387,7 +356,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(705, 44);
+            this.button1.Location = new System.Drawing.Point(460, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 47);
             this.button1.TabIndex = 7;
@@ -395,12 +364,81 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Bahnschrift SemiBold", 16.2F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(705, 44);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(213, 47);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Ver Respostas";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // Utilizador
+            // 
+            this.Utilizador.HeaderText = "Utilizador";
+            this.Utilizador.Name = "Utilizador";
+            this.Utilizador.ReadOnly = true;
+            this.Utilizador.Width = 150;
+            // 
+            // Sala
+            // 
+            this.Sala.HeaderText = "Sala";
+            this.Sala.Name = "Sala";
+            this.Sala.ReadOnly = true;
+            // 
+            // Notificaçoes
+            // 
+            this.Notificaçoes.HeaderText = "Notificações";
+            this.Notificaçoes.Name = "Notificaçoes";
+            this.Notificaçoes.ReadOnly = true;
+            this.Notificaçoes.Width = 350;
+            // 
+            // Data_Inicial
+            // 
+            this.Data_Inicial.HeaderText = "Data Inicial";
+            this.Data_Inicial.Name = "Data_Inicial";
+            this.Data_Inicial.ReadOnly = true;
+            // 
+            // Data_Final
+            // 
+            this.Data_Final.HeaderText = "Data Final";
+            this.Data_Final.Name = "Data_Final";
+            this.Data_Final.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // Resposta
+            // 
+            this.Resposta.HeaderText = "Resposta";
+            this.Resposta.Name = "Resposta";
+            this.Resposta.Visible = false;
+            this.Resposta.Width = 350;
+            // 
+            // Data_da_Resposta
+            // 
+            this.Data_da_Resposta.HeaderText = "Data da Resposta";
+            this.Data_da_Resposta.Name = "Data_da_Resposta";
+            this.Data_da_Resposta.Visible = false;
+            // 
+            // Resposta_por
+            // 
+            this.Resposta_por.HeaderText = "Resposta por:";
+            this.Resposta_por.Name = "Resposta_por";
+            this.Resposta_por.Visible = false;
+            // 
             // consultar_notificaçoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -446,12 +484,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Utilizador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sala;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Notificaçoes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Inicial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Final;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Panel panel2;
@@ -462,5 +494,15 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Utilizador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sala;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Notificaçoes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Inicial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Final;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Resposta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data_da_Resposta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Resposta_por;
     }
 }
