@@ -18,6 +18,8 @@ namespace projeto_final
         string diretorio = @"diretorio/";
         string salas = @"salas.txt";
         string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
+        string fila = "";
+        
 
         public consultar_notificaçoes()
         {
@@ -34,19 +36,32 @@ namespace projeto_final
                 string linha;
                 while ((linha = sr.ReadLine()) != null)
                 {
-                    comboBox1.Items.Add(linha);
+                    comboBox1.Items.Add(diretorio+salas);
+                }
+                sr.Close();
+            }
+            if (File.Exists(notificações))
+            {
+                sr = File.OpenText(notificações);
+                string linha;
+                while ((linha = sr.ReadLine()) != null)
+                {
+                    string[] fill = linha.Split(';'); //divide as partes da string por ";"
+                    comboBox2.Items.Add(fill[0]);
                 }
                 sr.Close();
             }
 
             if (variaveis.id == 0 || variaveis.id == 1)
             {
-                textBox1.Enabled = true;
+                comboBox2.Enabled = true;
+                panel2.Visible = true;
             }
             else
             {
-                textBox1.Enabled = false;
-                textBox1.Text = variaveis.nomeut;
+                comboBox2.Enabled = false;
+                comboBox2.Text = variaveis.nomeut;
+                panel2.Visible = false;
             }            
         }
 
@@ -91,7 +106,7 @@ namespace projeto_final
             {
                 return false;
             }
-            else if (linha == "Pendente" && linha == "Concluido")
+            else if (linha == "Pendente" || linha == "Concluido")
             {
                 return true;
             }
@@ -100,7 +115,86 @@ namespace projeto_final
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear(); //Elimina o conteudo existente na datagridview.
+            int numli = 0; //variavel para mudar linha.
+            string fila = "";
+            sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
+            while ((fila = sr.ReadLine()) != null)
+            {
+                string[] fill = fila.Split(';'); // divide as partes da string por ";"
+
+                if (comboBox2.Text !="")
+                { 
+                    if (comboBox2.Text == fill[0])
+                    {
+                        if (comboBox1.SelectedItem == fill[1])
+                        {
+                            if (dateTimePicker1.Text.ToString() == fill[4])
+                            {
+                                if (dateTimePicker2.Text.ToString() == fill[5])
+                                {
+
+                                }
+                                else if (dateTimePicker2.Text.ToString() == "")
+                                {
+
+                                }
+                            }
+                            else if (dateTimePicker1.Text.ToString() == "")
+                            {
+                                if (dateTimePicker2.Text.ToString() == fill[5])
+                                {
+
+                                }
+                                else if (dateTimePicker2.Text.ToString() == "")
+                                {
+
+                                }
+                            }
+                        }
+                        else if (comboBox1.SelectedItem == "")
+                        {
+                            if (dateTimePicker1.Text.ToString() == fill[4])
+                            {
+                                if (dateTimePicker2.Text.ToString() == fill[5])
+                                {
+
+                                }
+                                else if (dateTimePicker2.Text.ToString() == "")
+                                {
+
+                                }
+                            }
+                            else if (dateTimePicker1.Text.ToString() == "")
+                            {
+                                if (dateTimePicker2.Text.ToString() == fill[5])
+                                {
+
+                                }
+                                else if (dateTimePicker2.Text.ToString() == "")
+                                {
+
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (comboBox2.Text == "")
+                {
+
+                }
+            }
+            sr.Close();
         }
     }
 }

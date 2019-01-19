@@ -39,7 +39,15 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notificaçoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Inicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Final = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,20 +56,17 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Notificaçoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Inicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Final = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -151,9 +156,48 @@
             this.dataGridView1.Size = new System.Drawing.Size(858, 299);
             this.dataGridView1.TabIndex = 3;
             // 
+            // Utilizador
+            // 
+            this.Utilizador.HeaderText = "Utilizador";
+            this.Utilizador.Name = "Utilizador";
+            this.Utilizador.ReadOnly = true;
+            this.Utilizador.Width = 150;
+            // 
+            // Sala
+            // 
+            this.Sala.HeaderText = "Sala";
+            this.Sala.Name = "Sala";
+            this.Sala.ReadOnly = true;
+            // 
+            // Notificaçoes
+            // 
+            this.Notificaçoes.HeaderText = "Notificações";
+            this.Notificaçoes.Name = "Notificaçoes";
+            this.Notificaçoes.ReadOnly = true;
+            this.Notificaçoes.Width = 350;
+            // 
+            // Data_Inicial
+            // 
+            this.Data_Inicial.HeaderText = "Data Inicial";
+            this.Data_Inicial.Name = "Data_Inicial";
+            this.Data_Inicial.ReadOnly = true;
+            // 
+            // Data_Final
+            // 
+            this.Data_Final.HeaderText = "Data Final";
+            this.Data_Final.Name = "Data_Final";
+            this.Data_Final.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.radioButton2);
@@ -164,11 +208,28 @@
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(60, 439);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(387, 220);
             this.panel1.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(25, 150);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 21);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Data Final :";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(142, 149);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(220, 22);
+            this.dateTimePicker2.TabIndex = 9;
+            this.dateTimePicker2.Value = new System.DateTime(2019, 1, 18, 0, 0, 0, 0);
             // 
             // radioButton2
             // 
@@ -250,78 +311,64 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Utilizador :";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(142, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 22);
-            this.textBox1.TabIndex = 1;
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(722, 606);
+            this.button1.Location = new System.Drawing.Point(722, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 53);
             this.button1.TabIndex = 5;
             this.button1.Text = "Consultar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // dateTimePicker2
+            // panel2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(142, 149);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(220, 22);
-            this.dateTimePicker2.TabIndex = 9;
-            this.dateTimePicker2.Value = new System.DateTime(2019, 1, 18, 0, 0, 0, 0);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Location = new System.Drawing.Point(531, 439);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(387, 220);
+            this.panel2.TabIndex = 6;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // label5
+            // textBox2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(25, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 21);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Data Final :";
+            this.textBox2.Location = new System.Drawing.Point(13, 88);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(359, 84);
+            this.textBox2.TabIndex = 2;
             // 
-            // Utilizador
+            // button2
             // 
-            this.Utilizador.HeaderText = "Utilizador";
-            this.Utilizador.Name = "Utilizador";
-            this.Utilizador.ReadOnly = true;
-            this.Utilizador.Width = 150;
+            this.button2.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(265, 185);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 32);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Enviar";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // Sala
+            // label6
             // 
-            this.Sala.HeaderText = "Sala";
-            this.Sala.Name = "Sala";
-            this.Sala.ReadOnly = true;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(105, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(188, 21);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Resposta a Notificações";
             // 
-            // Notificaçoes
+            // comboBox2
             // 
-            this.Notificaçoes.HeaderText = "Notificações";
-            this.Notificaçoes.Name = "Notificaçoes";
-            this.Notificaçoes.ReadOnly = true;
-            this.Notificaçoes.Width = 350;
-            // 
-            // Data_Inicial
-            // 
-            this.Data_Inicial.HeaderText = "Data Inicial";
-            this.Data_Inicial.Name = "Data_Inicial";
-            this.Data_Inicial.ReadOnly = true;
-            // 
-            // Data_Final
-            // 
-            this.Data_Final.HeaderText = "Data Final";
-            this.Data_Final.Name = "Data_Final";
-            this.Data_Final.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(142, 20);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(220, 24);
+            this.comboBox2.TabIndex = 11;
             // 
             // consultar_notificaçoes
             // 
@@ -329,6 +376,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
@@ -346,6 +394,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,7 +414,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label4;
@@ -381,5 +430,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
