@@ -17,7 +17,6 @@ namespace projeto_final
         string notificações = @"notificaçoes.txt";
         string diretorio = @"diretorio/";
         string salas = @"salas.txt";
-        string comentarios = @"comentarios.txt";
         string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
         string fila = "";
         string data = DateTime.Today.ToString("dd/MM/yyyy");

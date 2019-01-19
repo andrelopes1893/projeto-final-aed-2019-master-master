@@ -38,16 +38,16 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Software = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_de_instalação = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora_de_Instalação = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo_de_Licença = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.Software = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_de_instalação = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora_de_Instalação = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo_de_Licença = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -129,6 +129,32 @@
             this.dataGridView1.Size = new System.Drawing.Size(652, 400);
             this.dataGridView1.TabIndex = 2;
             // 
+            // Software
+            // 
+            this.Software.HeaderText = "Software";
+            this.Software.Name = "Software";
+            this.Software.ReadOnly = true;
+            this.Software.Width = 200;
+            // 
+            // Data_de_instalação
+            // 
+            this.Data_de_instalação.HeaderText = "Data de instalação";
+            this.Data_de_instalação.Name = "Data_de_instalação";
+            this.Data_de_instalação.ReadOnly = true;
+            // 
+            // Hora_de_Instalação
+            // 
+            this.Hora_de_Instalação.HeaderText = "Hora de Instalação";
+            this.Hora_de_Instalação.Name = "Hora_de_Instalação";
+            this.Hora_de_Instalação.ReadOnly = true;
+            // 
+            // Tipo_de_Licença
+            // 
+            this.Tipo_de_Licença.HeaderText = "Tipo de Licença";
+            this.Tipo_de_Licença.Name = "Tipo_de_Licença";
+            this.Tipo_de_Licença.ReadOnly = true;
+            this.Tipo_de_Licença.Width = 200;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
@@ -178,32 +204,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Software
-            // 
-            this.Software.HeaderText = "Software";
-            this.Software.Name = "Software";
-            this.Software.ReadOnly = true;
-            this.Software.Width = 200;
-            // 
-            // Data_de_instalação
-            // 
-            this.Data_de_instalação.HeaderText = "Data de instalação";
-            this.Data_de_instalação.Name = "Data_de_instalação";
-            this.Data_de_instalação.ReadOnly = true;
-            // 
-            // Hora_de_Instalação
-            // 
-            this.Hora_de_Instalação.HeaderText = "Hora de Instalação";
-            this.Hora_de_Instalação.Name = "Hora_de_Instalação";
-            this.Hora_de_Instalação.ReadOnly = true;
-            // 
-            // Tipo_de_Licença
-            // 
-            this.Tipo_de_Licença.HeaderText = "Tipo de Licença";
-            this.Tipo_de_Licença.Name = "Tipo_de_Licença";
-            this.Tipo_de_Licença.ReadOnly = true;
-            this.Tipo_de_Licença.Width = 200;
-            // 
             // consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,6 +222,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "consultas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "consultas";
             this.Load += new System.EventHandler(this.consultas_Load);
             this.menuStrip1.ResumeLayout(false);

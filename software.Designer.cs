@@ -235,6 +235,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "software";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "software";
             this.Load += new System.EventHandler(this.software_Load);
             this.menuStrip1.ResumeLayout(false);

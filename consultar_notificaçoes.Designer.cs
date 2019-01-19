@@ -40,6 +40,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -51,12 +52,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -184,6 +184,14 @@
             this.panel1.Size = new System.Drawing.Size(387, 220);
             this.panel1.TabIndex = 4;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(142, 20);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(220, 24);
+            this.comboBox2.TabIndex = 11;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -296,6 +304,26 @@
             this.panel2.TabIndex = 6;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Bahnschrift", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label8.Location = new System.Drawing.Point(148, 43);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 21);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "label8";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(13, 43);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(128, 21);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Utilizador Ativo:";
+            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(13, 66);
@@ -324,34 +352,6 @@
             this.label6.Size = new System.Drawing.Size(188, 21);
             this.label6.TabIndex = 0;
             this.label6.Text = "Resposta a Notificações";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(142, 20);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(220, 24);
-            this.comboBox2.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 43);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 21);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Utilizador Ativo:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label8.Location = new System.Drawing.Point(148, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 21);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "label8";
             // 
             // button1
             // 
@@ -397,13 +397,13 @@
             // 
             // Data_Inicial
             // 
-            this.Data_Inicial.HeaderText = "Data Inicial";
+            this.Data_Inicial.HeaderText = "Data";
             this.Data_Inicial.Name = "Data_Inicial";
             this.Data_Inicial.ReadOnly = true;
             // 
             // Data_Final
             // 
-            this.Data_Final.HeaderText = "Data Final";
+            this.Data_Final.HeaderText = "Hora";
             this.Data_Final.Name = "Data_Final";
             this.Data_Final.ReadOnly = true;
             // 
@@ -449,6 +449,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "consultar_notificaçoes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "consultar_notificaçoes";
             this.Load += new System.EventHandler(this.consultar_notificaçoes_Load);
             this.menuStrip1.ResumeLayout(false);
