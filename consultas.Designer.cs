@@ -45,9 +45,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.nome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -247,12 +247,12 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.TextBox nome;
         private System.Windows.Forms.Label label1;
-        private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Software;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_de_instalação;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hora_de_Instalação;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_de_Licença;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }

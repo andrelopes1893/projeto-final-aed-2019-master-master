@@ -19,8 +19,6 @@ namespace projeto_final
         string salas = @"salas.txt";
         string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
         string fila = "";
-        string data = DateTime.Today.ToString("dd/MM/yyyy");
-        string hora = DateTime.Now.ToString("hh:mm:ss");
         int i;
         
 
@@ -141,9 +139,15 @@ namespace projeto_final
         //BOTÃO DAS CONSULTAS (FILTROS) 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear(); //Elimina o conteudo existente na datagridview.
+            dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
             int numli = 0; //variavel para mudar linha.
             string fila = "";
+
+            //string data1;
+            //DateTime result = dateTimePicker1.Value;
+            //data1 = result.ToString();
+            //checkBox1.Text = data1;
+
             sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
 
             while ((fila = sr.ReadLine()) != null)
@@ -153,15 +157,23 @@ namespace projeto_final
                 if (comboBox2.Text == fill[0] || comboBox2.Text == "")
                 {
                     if (comboBox1.Text == fill[1] || comboBox1.Text == "")
-                    {
-                        if (maskedTextBox1.Text == fill[5].ToString()); 
+                    {                        
+                        if (dateTimePicker1.Text== fill[5]);
                         {
-                                                        
+                            MessageBox.Show(dateTimePicker1.Text);
+
+                            dataGridView2.Rows.Add(1); //adiciona linha à datagridview
+                            dataGridView2[0, numli].Value = fill[0]; //adiciona na coluna 0 da datagrid o indice 0 do ficheiro notificaçoes
+                            dataGridView2[1, numli].Value = fill[1];
+                            dataGridView2[2, numli].Value = fill[4];
+                            dataGridView2[3, numli].Value = fill[5];
+                            dataGridView2[4, numli].Value = fill[7];
+                            numli++; //variavel contadora aumenta                      
                         }
                     }
                 }
             }
-            sr.Close();            
+            sr.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
