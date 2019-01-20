@@ -138,54 +138,60 @@ namespace projeto_final
         //BOTÃO DE ENVIAR RESPOSTA
         private void button2_Click(object sender, EventArgs e)
         {
-            int line = dataGridView2.CurrentCell.RowIndex;
-            StreamWriter sw = File.CreateText(apoio);
+            int line = dataGridView2.CurrentCell.RowIndex; //linha da datagridview que se encontra selecionada
+            StreamWriter sw = File.CreateText(apoio); //cria o ficheiro apoio.txtx
             sw.Close();
 
-            string textoresporta = textBox2.Text;
+            string textoresporta = textBox2.Text; 
             string autorresposta = label8.Text;
             string dataresposta = DateTime.Today.ToString("dd/MM/yyyy");
 
-            string resposta = (textoresporta + ";" + dataresposta + ";" + autorresposta + ";");
+            string resposta = (textoresporta + ";" + dataresposta + ";" + autorresposta + ";"); //conteudo da resposta a adicionar no ficheiro notificaçoes
 
-            StreamReader sr1 = File.OpenText(notificações);
+            StreamReader sr1 = File.OpenText(notificações); //abre o ficheiro notificaçoes.txt
             string outralinha;
 
             while((outralinha = sr1.ReadLine()) != null)
             {
                 string[] fill = outralinha.Split(';'); // divide as partes da string por ";"
-                StreamWriter sw1 = File.AppendText(apoio);
+                StreamWriter sw1 = File.AppendText(apoio); //adiciona texto no ficheiro apoio.txt 
 
+                //se o indice 0 e 4 do array fill foram iguais ao conteudo das colunas 0 e 2, respetivamente, da datagridview
                 if (dataGridView2[0, line].Value.ToString() == fill[0] && dataGridView2[2, line].Value.ToString() == fill[4])
                 {
-                   
-                    sw1.WriteLine(fill[0] + ";" + fill[1] + ";" + fill[2] + ";" + fill[3] + ";" + fill[4] + ";" + fill[5] + ";" + fill[6] + ";" + "Concluído" + ";" + resposta);
+                   //adiciona/escreve o tipo de linha em baixo criado, no ficheiro apoio.txt
+                    sw1.WriteLine(fill[0] + ";" + fill[1] + ";" + fill[2] + ";" + fill[3] + ";" + fill[4] + ";" + fill[5] + ";" + fill[6] + ";" + "Concluído" + ";" + resposta); 
                     sw1.Close();
                 }
+                //caso contrario
                 else
                 {
+                    //adiciona/escreve a "outralinha" no ficheiro apoio.txt
                     sw1.WriteLine(outralinha);
                     sw1.Close();
                 }                
             }
             sr1.Close();
 
-            File.Delete(notificações);
-            StreamWriter sw2 = File.CreateText(notificações);
-            sw2.Close();
+            File.Delete(notificações); //apaga o ficheiro notificaçoes
+            StreamWriter sw2 = File.CreateText(notificações); //cria de novo o ficheiro notificaçoes
+            sw2.Close(); 
 
-            StreamReader sr2 = File.OpenText(apoio);
+            StreamReader sr2 = File.OpenText(apoio); //abre o ficheiro apoio.txt
 
             while ((outralinha = sr2.ReadLine()) != null)
             {
-                sw2 = File.AppendText(notificações);
-                sw2.WriteLine(outralinha);
+                //adiciona o texto no ficheiro notificaçoes.txt
+                sw2 = File.AppendText(notificações); 
+                sw2.WriteLine(outralinha); 
                 sw2.Close();
-
             }
             sr2.Close();
 
-            File.Delete(apoio);
+            File.Delete(apoio); //apaga o ficheiro apoio.txt
+
+            //envia uma mensagem de sucesso na resposta as notificaçoes
+            MessageBox.Show("A resposta à notificação foi enviada com sucesso.", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         //BOTÃO DAS CONSULTAS (FILTROS) 
@@ -242,11 +248,12 @@ namespace projeto_final
             sr.Close();
         }
 
+        //BOTÃO DE VER RESPOSTAS
         private void button3_Click(object sender, EventArgs e)
         {
-            Resposta_por.Visible = true;
-            Data_da_Resposta.Visible = true;
-            Resposta.Visible = true;
+            Resposta_por.Visible = true; //torna a coluna resporta por, da datagridview visivel
+            Data_da_Resposta.Visible = true; //torna a coluna data da resposta, da datagridview visivel
+            Resposta.Visible = true; //torna a coluna resposta, da datagridview visivel
 
             dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
             int numli = 0; //variavel para mudar linha.
@@ -281,7 +288,7 @@ namespace projeto_final
                         {
                             if (data1 == fill[5] || data1 == hoje)
                             {
-                                if (fill.Length>=12)
+                                if (fill.Length>=12) // se o comprimento do array fill for maior ou igual que 12
                                 {                              
                                     dataGridView2.Rows.Add(1); //adiciona linha à datagridview
                                     dataGridView2[0, numli].Value = fill[0]; //adiciona na coluna 0 da datagrid o indice 0 do ficheiro notificaçoes
@@ -295,7 +302,7 @@ namespace projeto_final
                                     numli++; //variavel contadora aumenta   
                                 }
 
-                                else if (fill.Length < 12)
+                                else if (fill.Length < 12) // se o comprimento do array fill for menos que 12
                                 {
                                     dataGridView2.Rows.Add(1); //adiciona linha à datagridview
                                     dataGridView2[0, numli].Value = fill[0]; //adiciona na coluna 0 da datagrid o indice 0 do ficheiro notificaçoes
@@ -335,12 +342,12 @@ namespace projeto_final
         private void button4_Click(object sender, EventArgs e)
         {
             dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
-            comboBox1.Text = "";
-            comboBox2.Text = "";
-            textBox2.Text = "";
+            comboBox1.Text = ""; //Elimina o conteudo existente na combobox1
+            comboBox2.Text = ""; //Elimina o conteudo existente na combobox2
+            textBox2.Text = ""; //Elimina o conteudo existente na textbox2
             dateTimePicker1.CustomFormat = " ";
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
+            radioButton1.Checked = false; //desceleciona o radio button1
+            radioButton2.Checked = false; //desceleciona o radio button2
         }
     }
 }
