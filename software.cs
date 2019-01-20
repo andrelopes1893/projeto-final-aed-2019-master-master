@@ -125,6 +125,10 @@ namespace projeto_final
                     button2.Enabled = false;
                     MessageBox.Show("Software registado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    comboBox1.Text = "";
+                    comboBox2.Text = "";
+                    textBox1.Text = "";
+
                 }
                 //se o ficheiro (nome da sala) pretendido não existir
                 else

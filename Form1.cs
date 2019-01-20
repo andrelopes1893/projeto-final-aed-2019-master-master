@@ -116,22 +116,25 @@ namespace projeto_final
                     this.Hide(); //esconde os outros forms
                     c++;
 
-                    if (File.Exists(notificações)) //se o ficheiro notificaçoes.txt existir
+                    if (variaveis.id == 0 || variaveis.id == 1)  // se a conta que der login for de administrador(0) ou for conta de segurança(1)
                     {
-                        sr = File.OpenText(notificações); //abre o ficheiro
-                        string linha;
-                        while ((linha = sr.ReadLine()) != null) //enquanto a linha do ficheiro for diferente de nulo
+                        if (File.Exists(notificações)) //se o ficheiro notificaçoes.txt existir
                         {
-                            string[] fill = linha.Split(';'); //divide as partes da string por ";"
-                            if (fill[7] == "Pendente") //se encontrar no indice 7 do array fill um estado "pendente", executa a messagebox
+                            sr = File.OpenText(notificações); //abre o ficheiro
+                            string linha;
+                            while ((linha = sr.ReadLine()) != null) //enquanto a linha do ficheiro for diferente de nulo
                             {
-                                //message box que diz que existem notificaçoes pendentes
-                                MessageBox.Show("Aviso: Existem notificações pendentes para resolver! Tente resolver os pedidos dos docentes o mais brevemente possível.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
-                                //quebra o ciclo caso a condiçao seja verdadeira
-                                break;
+                                string[] fill = linha.Split(';'); //divide as partes da string por ";"
+                                if (fill[7] == "Pendente") //se encontrar no indice 7 do array fill um estado "pendente", executa a messagebox
+                                {
+                                    //message box que diz que existem notificaçoes pendentes
+                                    MessageBox.Show("Aviso: Existem notificações pendentes, para resolver! Tente resolver os pedidos dos docentes o mais brevemente possível.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    //quebra o ciclo caso a condiçao seja verdadeira
+                                    break;
+                                }
                             }
+                            sr.Close();
                         }
-                        sr.Close();
                     }
                 }                
             }
