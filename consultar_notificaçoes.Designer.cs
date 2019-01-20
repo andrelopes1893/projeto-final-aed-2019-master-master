@@ -39,7 +39,16 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notificaçoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_Inicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data_da_Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Resposta_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -56,15 +65,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Notificaçoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Inicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_da_Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Resposta_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -161,6 +161,57 @@
             this.dataGridView2.Size = new System.Drawing.Size(858, 299);
             this.dataGridView2.TabIndex = 3;
             // 
+            // Utilizador
+            // 
+            this.Utilizador.HeaderText = "Utilizador";
+            this.Utilizador.Name = "Utilizador";
+            this.Utilizador.ReadOnly = true;
+            this.Utilizador.Width = 150;
+            // 
+            // Sala
+            // 
+            this.Sala.HeaderText = "Sala";
+            this.Sala.Name = "Sala";
+            this.Sala.ReadOnly = true;
+            // 
+            // Notificaçoes
+            // 
+            this.Notificaçoes.HeaderText = "Notificações";
+            this.Notificaçoes.Name = "Notificaçoes";
+            this.Notificaçoes.ReadOnly = true;
+            this.Notificaçoes.Width = 350;
+            // 
+            // Data_Inicial
+            // 
+            this.Data_Inicial.HeaderText = "Data";
+            this.Data_Inicial.Name = "Data_Inicial";
+            this.Data_Inicial.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // Resposta
+            // 
+            this.Resposta.HeaderText = "Resposta";
+            this.Resposta.Name = "Resposta";
+            this.Resposta.Visible = false;
+            this.Resposta.Width = 350;
+            // 
+            // Data_da_Resposta
+            // 
+            this.Data_da_Resposta.HeaderText = "Data da Resposta";
+            this.Data_da_Resposta.Name = "Data_da_Resposta";
+            this.Data_da_Resposta.Visible = false;
+            // 
+            // Resposta_por
+            // 
+            this.Resposta_por.HeaderText = "Resposta por:";
+            this.Resposta_por.Name = "Resposta_por";
+            this.Resposta_por.Visible = false;
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -177,6 +228,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(465, 220);
             this.panel1.TabIndex = 4;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(142, 128);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(142, 22);
+            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.Value = new System.DateTime(2019, 1, 20, 0, 0, 0, 0);
             // 
             // comboBox2
             // 
@@ -197,6 +257,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Concluído";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -209,6 +270,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Pendente";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // label4
             // 
@@ -342,66 +404,6 @@
             this.button3.Text = "Ver Respostas";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // Utilizador
-            // 
-            this.Utilizador.HeaderText = "Utilizador";
-            this.Utilizador.Name = "Utilizador";
-            this.Utilizador.ReadOnly = true;
-            this.Utilizador.Width = 150;
-            // 
-            // Sala
-            // 
-            this.Sala.HeaderText = "Sala";
-            this.Sala.Name = "Sala";
-            this.Sala.ReadOnly = true;
-            // 
-            // Notificaçoes
-            // 
-            this.Notificaçoes.HeaderText = "Notificações";
-            this.Notificaçoes.Name = "Notificaçoes";
-            this.Notificaçoes.ReadOnly = true;
-            this.Notificaçoes.Width = 350;
-            // 
-            // Data_Inicial
-            // 
-            this.Data_Inicial.HeaderText = "Data";
-            this.Data_Inicial.Name = "Data_Inicial";
-            this.Data_Inicial.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            // 
-            // Resposta
-            // 
-            this.Resposta.HeaderText = "Resposta";
-            this.Resposta.Name = "Resposta";
-            this.Resposta.Visible = false;
-            this.Resposta.Width = 350;
-            // 
-            // Data_da_Resposta
-            // 
-            this.Data_da_Resposta.HeaderText = "Data da Resposta";
-            this.Data_da_Resposta.Name = "Data_da_Resposta";
-            this.Data_da_Resposta.Visible = false;
-            // 
-            // Resposta_por
-            // 
-            this.Resposta_por.HeaderText = "Resposta por:";
-            this.Resposta_por.Name = "Resposta_por";
-            this.Resposta_por.Visible = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(142, 128);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(142, 22);
-            this.dateTimePicker1.TabIndex = 12;
-            this.dateTimePicker1.Value = new System.DateTime(2019, 1, 20, 0, 0, 0, 0);
             // 
             // consultar_notificaçoes
             // 

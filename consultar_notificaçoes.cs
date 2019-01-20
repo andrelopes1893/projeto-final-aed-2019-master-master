@@ -143,12 +143,22 @@ namespace projeto_final
             int numli = 0; //variavel para mudar linha.
             string fila = "";
 
-            //string data1;
-            //DateTime result = dateTimePicker1.Value;
-            //data1 = result.ToString();
-            //checkBox1.Text = data1;
+
+
+            string data1;
+            data1 = dateTimePicker1.Value.ToString("dd/MM/yyyy");
 
             sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
+
+            string state = "";
+            if (radioButton1.Checked)
+            {
+                state = radioButton1.Text;
+            }
+            else if (radioButton2.Checked)
+            {
+                state = radioButton2.Text;
+            }
 
             while ((fila = sr.ReadLine()) != null)
             {
@@ -157,18 +167,19 @@ namespace projeto_final
                 if (comboBox2.Text == fill[0] || comboBox2.Text == "")
                 {
                     if (comboBox1.Text == fill[1] || comboBox1.Text == "")
-                    {                        
-                        if (dateTimePicker1.Text== fill[5]);
+                    {
+                        if (state == fill[7] || state == "")
                         {
-                            MessageBox.Show(dateTimePicker1.Text);
-
-                            dataGridView2.Rows.Add(1); //adiciona linha à datagridview
-                            dataGridView2[0, numli].Value = fill[0]; //adiciona na coluna 0 da datagrid o indice 0 do ficheiro notificaçoes
-                            dataGridView2[1, numli].Value = fill[1];
-                            dataGridView2[2, numli].Value = fill[4];
-                            dataGridView2[3, numli].Value = fill[5];
-                            dataGridView2[4, numli].Value = fill[7];
-                            numli++; //variavel contadora aumenta                      
+                            if (data1 == fill[5])
+                            {
+                                dataGridView2.Rows.Add(1); //adiciona linha à datagridview
+                                dataGridView2[0, numli].Value = fill[0]; //adiciona na coluna 0 da datagrid o indice 0 do ficheiro notificaçoes
+                                dataGridView2[1, numli].Value = fill[1];
+                                dataGridView2[2, numli].Value = fill[4];
+                                dataGridView2[3, numli].Value = fill[5];
+                                dataGridView2[4, numli].Value = fill[7];
+                                numli++; //variavel contadora aumenta                      
+                            }
                         }
                     }
                 }
@@ -181,6 +192,16 @@ namespace projeto_final
             Resposta_por.Visible = true;
             Data_da_Resposta.Visible = true;
             Resposta.Visible = true;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
