@@ -146,6 +146,7 @@ namespace projeto_final
 
 
             string data1;
+            string hoje = DateTime.Now.ToString("dd/MM/yyyy");
             data1 = dateTimePicker1.Value.ToString("dd/MM/yyyy");
 
             sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
@@ -170,7 +171,7 @@ namespace projeto_final
                     {
                         if (state == fill[7] || state == "")
                         {
-                            if (data1 == fill[5])
+                            if (data1 == fill[5] || data1 == hoje)
                             {
                                 dataGridView2.Rows.Add(1); //adiciona linha à datagridview
                                 dataGridView2[0, numli].Value = fill[0]; //adiciona na coluna 0 da datagrid o indice 0 do ficheiro notificaçoes
