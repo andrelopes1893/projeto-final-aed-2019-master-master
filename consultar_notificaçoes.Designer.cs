@@ -41,13 +41,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,11 +56,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.Utilizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Notificaçoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_Inicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data_Final = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data_da_Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,7 +151,6 @@
             this.Sala,
             this.Notificaçoes,
             this.Data_Inicial,
-            this.Data_Final,
             this.Estado,
             this.Resposta,
             this.Data_da_Resposta,
@@ -168,14 +164,12 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.maskedTextBox1);
             this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -192,29 +186,11 @@
             this.comboBox2.Size = new System.Drawing.Size(220, 24);
             this.comboBox2.TabIndex = 11;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(25, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 21);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Data Final :";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(142, 149);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(220, 22);
-            this.dateTimePicker2.TabIndex = 9;
-            this.dateTimePicker2.Value = new System.DateTime(2019, 1, 18, 0, 0, 0, 0);
-            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
-            this.radioButton2.Location = new System.Drawing.Point(258, 186);
+            this.radioButton2.Location = new System.Drawing.Point(258, 172);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(104, 25);
             this.radioButton2.TabIndex = 8;
@@ -226,7 +202,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
-            this.radioButton1.Location = new System.Drawing.Point(142, 186);
+            this.radioButton1.Location = new System.Drawing.Point(142, 172);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(101, 25);
             this.radioButton1.TabIndex = 7;
@@ -238,7 +214,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(28, 186);
+            this.label4.Location = new System.Drawing.Point(28, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 21);
             this.label4.TabIndex = 6;
@@ -248,24 +224,16 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(25, 112);
+            this.label3.Location = new System.Drawing.Point(28, 128);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 21);
+            this.label3.Size = new System.Drawing.Size(49, 21);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Data Inicial :";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(142, 112);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 22);
-            this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.Value = new System.DateTime(2019, 1, 24, 0, 0, 0, 0);
+            this.label3.Text = "Data:";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(142, 67);
+            this.comboBox1.Location = new System.Drawing.Point(142, 76);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(220, 24);
             this.comboBox1.TabIndex = 3;
@@ -274,7 +242,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(28, 66);
+            this.label2.Location = new System.Drawing.Point(28, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 21);
             this.label2.TabIndex = 2;
@@ -375,6 +343,15 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(142, 129);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 22);
+            this.maskedTextBox1.TabIndex = 9;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
             // Utilizador
             // 
             this.Utilizador.HeaderText = "Utilizador";
@@ -400,12 +377,6 @@
             this.Data_Inicial.HeaderText = "Data";
             this.Data_Inicial.Name = "Data_Inicial";
             this.Data_Inicial.ReadOnly = true;
-            // 
-            // Data_Final
-            // 
-            this.Data_Final.HeaderText = "Hora";
-            this.Data_Final.Name = "Data_Final";
-            this.Data_Final.ReadOnly = true;
             // 
             // Estado
             // 
@@ -482,11 +453,8 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
@@ -496,11 +464,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Utilizador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sala;
         private System.Windows.Forms.DataGridViewTextBoxColumn Notificaçoes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_Inicial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data_Final;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Resposta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data_da_Resposta;

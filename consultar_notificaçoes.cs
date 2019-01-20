@@ -22,7 +22,7 @@ namespace projeto_final
         string data = DateTime.Today.ToString("dd/MM/yyyy");
         string hora = DateTime.Now.ToString("hh:mm:ss");
         int i;
-
+        
 
         public consultar_notificaçoes()
         {
@@ -150,17 +150,18 @@ namespace projeto_final
             {
                 string[] fill = fila.Split(';'); // divide as partes da string por ";"
 
-                dataGridView1.Rows.Add(1); //adiciona linha à datagridview
-
-                dataGridView1[0, numli].Value = fill[0];
-                dataGridView1[1, numli].Value = fill[1];
-                dataGridView1[2, numli].Value = fill[4];
-                dataGridView1[3, numli].Value = fill[5];
-                dataGridView1[4, numli].Value = fill[6];
-                dataGridView1[5, numli].Value = fill[7];
-                numli++; //variavel contadora aumenta
+                if (comboBox2.Text == fill[0] || comboBox2.Text == "")
+                {
+                    if (comboBox1.Text == fill[1] || comboBox1.Text == "")
+                    {
+                        if (maskedTextBox1.Text == fill[5].ToString()); 
+                        {
+                                                        
+                        }
+                    }
+                }
             }
-                sr.Close();
+            sr.Close();            
         }
 
         private void button3_Click(object sender, EventArgs e)
