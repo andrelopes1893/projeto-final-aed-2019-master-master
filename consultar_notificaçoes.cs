@@ -139,9 +139,53 @@ namespace projeto_final
         private void button2_Click(object sender, EventArgs e)
         {
             int line = dataGridView2.CurrentCell.RowIndex;
-            File.CreateText(apoio);
+            StreamWriter sw = File.CreateText(apoio);
+            sw.Close();
 
+            string textoresporta = textBox2.Text;
+            string autorresposta = label8.Text;
+            string dataresposta = DateTime.Today.ToString("dd/MM/yyyy");
 
+            string resposta = (textoresporta + ";" + dataresposta + ";" + autorresposta + ";");
+
+            StreamReader sr1 = File.OpenText(notificações);
+            string outralinha;
+
+            while((outralinha = sr1.ReadLine()) != null)
+            {
+                string[] fill = outralinha.Split(';'); // divide as partes da string por ";"
+                StreamWriter sw1 = File.AppendText(apoio);
+
+                if (dataGridView2[0, line].Value.ToString() == fill[0] && dataGridView2[2, line].Value.ToString() == fill[4])
+                {
+                   
+                    sw1.WriteLine(fill[0] + ";" + fill[1] + ";" + fill[2] + ";" + fill[3] + ";" + fill[4] + ";" + fill[5] + ";" + fill[6] + ";" + "Concluído" + ";" + resposta);
+                    sw1.Close();
+                }
+                else
+                {
+                    sw1.WriteLine(outralinha);
+                    sw1.Close();
+                }                
+            }
+            sr1.Close();
+
+            File.Delete(notificações);
+            StreamWriter sw2 = File.CreateText(notificações);
+            sw2.Close();
+
+            StreamReader sr2 = File.OpenText(apoio);
+
+            while ((outralinha = sr2.ReadLine()) != null)
+            {
+                sw2 = File.AppendText(notificações);
+                sw2.WriteLine(outralinha);
+                sw2.Close();
+
+            }
+            sr2.Close();
+
+            File.Delete(apoio);
         }
 
         //BOTÃO DAS CONSULTAS (FILTROS) 
@@ -150,7 +194,6 @@ namespace projeto_final
             dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
             int numli = 0; //variavel para mudar linha.
             string fila = "";
-
 
 
             string data1;
@@ -204,6 +247,73 @@ namespace projeto_final
             Resposta_por.Visible = true;
             Data_da_Resposta.Visible = true;
             Resposta.Visible = true;
+
+            dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
+            int numli = 0; //variavel para mudar linha.
+            string fila = "";
+
+
+            string data1;
+            string hoje = DateTime.Now.ToString("dd/MM/yyyy");
+            data1 = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+
+            sr = File.OpenText(notificações); //Abre o ficheiro para fazer a leitura deste.
+
+            string state = "";
+            if (radioButton1.Checked)
+            {
+                state = radioButton1.Text;
+            }
+            else if (radioButton2.Checked)
+            {
+                state = radioButton2.Text;
+            }
+
+            while ((fila = sr.ReadLine()) != null)
+            {
+                string[] fill = fila.Split(';'); // divide as partes da string por ";"
+
+                if (comboBox2.Text == fill[0] || comboBox2.Text == "")
+                {
+                    if (comboBox1.Text == fill[1] || comboBox1.Text == "")
+                    {
+                        if (state == fill[7] || state == "")
+                        {
+                            if (data1 == fill[5] || data1 == hoje)
+                            {
+                                if (fill.Length>=12)
+                                {                              
+                                    dataGridView2.Rows.Add(1); //adiciona linha à datagridview
+                                    dataGridView2[0, numli].Value = fill[0]; //adiciona na coluna 0 da datagrid o indice 0 do ficheiro notificaçoes
+                                    dataGridView2[1, numli].Value = fill[1];
+                                    dataGridView2[2, numli].Value = fill[4];
+                                    dataGridView2[3, numli].Value = fill[5];
+                                    dataGridView2[4, numli].Value = fill[7];
+                                    dataGridView2[5, numli].Value = fill[8];
+                                    dataGridView2[6, numli].Value = fill[9];
+                                    dataGridView2[7, numli].Value = fill[10];
+                                    numli++; //variavel contadora aumenta   
+                                }
+
+                                else if (fill.Length < 12)
+                                {
+                                    dataGridView2.Rows.Add(1); //adiciona linha à datagridview
+                                    dataGridView2[0, numli].Value = fill[0]; //adiciona na coluna 0 da datagrid o indice 0 do ficheiro notificaçoes
+                                    dataGridView2[1, numli].Value = fill[1];
+                                    dataGridView2[2, numli].Value = fill[4];
+                                    dataGridView2[3, numli].Value = fill[5];
+                                    dataGridView2[4, numli].Value = fill[7];
+                                    dataGridView2[5, numli].Value = "-";
+                                    dataGridView2[6, numli].Value = "-";
+                                    dataGridView2[7, numli].Value = "-";
+                                    numli++; //variavel contadora aumenta   
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            sr.Close();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -227,6 +337,7 @@ namespace projeto_final
             dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
             comboBox1.Text = "";
             comboBox2.Text = "";
+            textBox2.Text = "";
             dateTimePicker1.CustomFormat = " ";
             radioButton1.Checked = false;
             radioButton2.Checked = false;
