@@ -17,6 +17,7 @@ namespace projeto_final
         string notificações = @"notificaçoes.txt";
         string diretorio = @"diretorio/";
         string salas = @"salas.txt";
+        string apoio = @"apoio.txt";
         string linha = ""; //Fazer uma variavel do tipo string para tomar os valores de uma linha do ficheiro
         string fila = "";
         int i;
@@ -31,6 +32,10 @@ namespace projeto_final
         {
             timer1.Enabled = true;
             label8.Text = variaveis.nomeut;
+
+            //faz com que aundo se dá o load, a datetimepicker1 venha vazia
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = " "; 
 
             if (Directory.Exists(diretorio))
             {
@@ -69,7 +74,7 @@ namespace projeto_final
                 comboBox2.Text = variaveis.nomeut;
                 panel2.Visible = false;
                 Estado.ReadOnly = true;
-            }            
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -133,7 +138,10 @@ namespace projeto_final
         //BOTÃO DE ENVIAR RESPOSTA
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            int line = dataGridView2.CurrentCell.RowIndex;
+            File.CreateText(apoio);
+
+
         }
 
         //BOTÃO DAS CONSULTAS (FILTROS) 
@@ -179,6 +187,9 @@ namespace projeto_final
                                 dataGridView2[2, numli].Value = fill[4];
                                 dataGridView2[3, numli].Value = fill[5];
                                 dataGridView2[4, numli].Value = fill[7];
+                                //dataGridView2[5, numli].Value = fill[8];
+                                //dataGridView2[6, numli].Value = fill[9];
+                                //dataGridView2[7, numli].Value = fill[10];
                                 numli++; //variavel contadora aumenta                      
                             }
                         }
@@ -203,6 +214,22 @@ namespace projeto_final
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+        }
+
+        //botao que apaga os filtros e limpa o conteudo da datagridview
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+            dateTimePicker1.CustomFormat = " ";
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
         }
     }
 }
