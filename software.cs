@@ -160,11 +160,10 @@ namespace projeto_final
                     }
                     sr.Close();                    
                 }
-                //caso nao exista, da mensagem de erro!
-                else
-                {
-                    MessageBox.Show("O ficheiro não fez upload ou está vazio!", "Erro no Upload", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                // if (linha = sr.ReadLine()) = null)
+                //{
+                //    MessageBox.Show("A sala não tem software registado!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}                
             }
         }
 

@@ -138,60 +138,67 @@ namespace projeto_final
         //BOTÃO DE ENVIAR RESPOSTA
         private void button2_Click(object sender, EventArgs e)
         {
-            int line = dataGridView2.CurrentCell.RowIndex; //linha da datagridview que se encontra selecionada
-            StreamWriter sw = File.CreateText(apoio); //cria o ficheiro apoio.txtx
-            sw.Close();
-
-            string textoresporta = textBox2.Text; 
-            string autorresposta = label8.Text;
-            string dataresposta = DateTime.Today.ToString("dd/MM/yyyy");
-
-            string resposta = (textoresporta + ";" + dataresposta + ";" + autorresposta + ";"); //conteudo da resposta a adicionar no ficheiro notificaçoes
-
-            StreamReader sr1 = File.OpenText(notificações); //abre o ficheiro notificaçoes.txt
-            string outralinha;
-
-            while((outralinha = sr1.ReadLine()) != null)
+            if (textBox2.Text == "")
             {
-                string[] fill = outralinha.Split(';'); // divide as partes da string por ";"
-                StreamWriter sw1 = File.AppendText(apoio); //adiciona texto no ficheiro apoio.txt 
+                MessageBox.Show("Não foi possível submeter a resposta à notificação", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int line = dataGridView2.CurrentCell.RowIndex; //linha da datagridview que se encontra selecionada
+                StreamWriter sw = File.CreateText(apoio); //cria o ficheiro apoio.txtx
+                sw.Close();
 
-                //se o indice 0 e 4 do array fill foram iguais ao conteudo das colunas 0 e 2, respetivamente, da datagridview
-                if (dataGridView2[0, line].Value.ToString() == fill[0] && dataGridView2[2, line].Value.ToString() == fill[4])
+                string textoresporta = textBox2.Text;
+                string autorresposta = label8.Text;
+                string dataresposta = DateTime.Today.ToString("dd/MM/yyyy");
+
+                string resposta = (textoresporta + ";" + dataresposta + ";" + autorresposta + ";"); //conteudo da resposta a adicionar no ficheiro notificaçoes
+
+                StreamReader sr1 = File.OpenText(notificações); //abre o ficheiro notificaçoes.txt
+                string outralinha;
+
+                while ((outralinha = sr1.ReadLine()) != null)
                 {
-                   //adiciona/escreve o tipo de linha em baixo criado, no ficheiro apoio.txt
-                    sw1.WriteLine(fill[0] + ";" + fill[1] + ";" + fill[2] + ";" + fill[3] + ";" + fill[4] + ";" + fill[5] + ";" + fill[6] + ";" + "Concluído" + ";" + resposta); 
-                    sw1.Close();
+                    string[] fill = outralinha.Split(';'); // divide as partes da string por ";"
+                    StreamWriter sw1 = File.AppendText(apoio); //adiciona texto no ficheiro apoio.txt 
+
+                    //se o indice 0 e 4 do array fill foram iguais ao conteudo das colunas 0 e 2, respetivamente, da datagridview
+                    if (dataGridView2[0, line].Value.ToString() == fill[0] && dataGridView2[2, line].Value.ToString() == fill[4])
+                    {
+                        //adiciona/escreve o tipo de linha em baixo criado, no ficheiro apoio.txt
+                        sw1.WriteLine(fill[0] + ";" + fill[1] + ";" + fill[2] + ";" + fill[3] + ";" + fill[4] + ";" + fill[5] + ";" + fill[6] + ";" + "Concluído" + ";" + resposta);
+                        sw1.Close();
+                    }
+                    //caso contrario
+                    else
+                    {
+                        //adiciona/escreve a "outralinha" no ficheiro apoio.txt
+                        sw1.WriteLine(outralinha);
+                        sw1.Close();
+                    }
                 }
-                //caso contrario
-                else
-                {
-                    //adiciona/escreve a "outralinha" no ficheiro apoio.txt
-                    sw1.WriteLine(outralinha);
-                    sw1.Close();
-                }                
-            }
-            sr1.Close();
+                sr1.Close();
 
-            File.Delete(notificações); //apaga o ficheiro notificaçoes
-            StreamWriter sw2 = File.CreateText(notificações); //cria de novo o ficheiro notificaçoes
-            sw2.Close(); 
-
-            StreamReader sr2 = File.OpenText(apoio); //abre o ficheiro apoio.txt
-
-            while ((outralinha = sr2.ReadLine()) != null)
-            {
-                //adiciona o texto no ficheiro notificaçoes.txt
-                sw2 = File.AppendText(notificações); 
-                sw2.WriteLine(outralinha); 
+                File.Delete(notificações); //apaga o ficheiro notificaçoes
+                StreamWriter sw2 = File.CreateText(notificações); //cria de novo o ficheiro notificaçoes
                 sw2.Close();
+
+                StreamReader sr2 = File.OpenText(apoio); //abre o ficheiro apoio.txt
+
+                while ((outralinha = sr2.ReadLine()) != null)
+                {
+                    //adiciona o texto no ficheiro notificaçoes.txt
+                    sw2 = File.AppendText(notificações);
+                    sw2.WriteLine(outralinha);
+                    sw2.Close();
+                }
+                sr2.Close();
+
+                File.Delete(apoio); //apaga o ficheiro apoio.txt
+
+                //envia uma mensagem de sucesso na resposta as notificaçoes
+                MessageBox.Show("A resposta à notificação foi enviada com sucesso. Escreva um comentário!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            sr2.Close();
-
-            File.Delete(apoio); //apaga o ficheiro apoio.txt
-
-            //envia uma mensagem de sucesso na resposta as notificaçoes
-            MessageBox.Show("A resposta à notificação foi enviada com sucesso.", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         //BOTÃO DAS CONSULTAS (FILTROS) 
