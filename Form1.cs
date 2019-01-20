@@ -13,6 +13,8 @@ namespace projeto_final
 {
     public partial class Form1 : Form
     {
+        string notificações = @"notificaçoes.txt";
+        StreamReader sr;
         string contas = @"contas.txt";
         public Form1()
         {
@@ -113,9 +115,28 @@ namespace projeto_final
                     form2.Show(); //abre o form "sessao iniciada" quando se carrega no botom "log in"
                     this.Hide(); //esconde os outros forms
                     c++;
+
+                    if (File.Exists(notificações)) //se o ficheiro notificaçoes.txt existir
+                    {
+                        sr = File.OpenText(notificações); //abre o ficheiro
+                        string linha;
+                        while ((linha = sr.ReadLine()) != null) //enquanto a linha do ficheiro for diferente de nulo
+                        {
+                            string[] fill = linha.Split(';'); //divide as partes da string por ";"
+                            if (fill[7] == "Pendente") //se encontrar no indice 7 do array fill um estado "pendente", executa a messagebox
+                            {
+                                //message box que diz que existem notificaçoes pendentes
+                                MessageBox.Show("Aviso: Existem notificações pendentes para resolver! Tente resolver os pedidos dos docentes o mais brevemente possível.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+                                //quebra o ciclo caso a condiçao seja verdadeira
+                                break;
+                            }
+                        }
+                        sr.Close();
+                    }
                 }                
             }
-            if (nome.Text == "" || nome.Text == "Nome de utilizador..." || passe.Text == "" || passe.Text == "Palavra-passe...") //se a textbox1 ou a textbox2 estiverem vazias, da mensagem de erro
+            //se a textbox1 ou a textbox2 estiverem vazias, da mensagem de erro
+            if (nome.Text == "" || nome.Text == "Nome de utilizador..." || passe.Text == "" || passe.Text == "Palavra-passe...") 
             {
                 MessageBox.Show("O Username ou a Password estão em falta!", "Erro de autenticação", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro
             }
@@ -159,11 +180,11 @@ namespace projeto_final
             int cont = 0;
 
             string li;
-            StreamReader sr = File.OpenText(contas);
+            StreamReader sr = File.OpenText(contas); //abre o ficheiro contas
            
             while ((li = sr.ReadLine()) != null)
             {
-                cont++;
+                cont++; //adiciona 1 ao Id, em relacao ao ID anterior, do nova linha
             }
 
             sr.Close();
@@ -178,12 +199,13 @@ namespace projeto_final
                 user.email = email.Text;
                 string util = user.username;
 
-
-                if (nome.Text == "" || nome.Text == "Nome de utilizador..." || passe.Text == "" || passe.Text == "Palavra-passe..." || email.Text == "" || email.Text == "Email..." || confirmar.Text == "" || confirmar.Text == " Confirmar Palavra-passe...") //opções que fazem com que o botão para registar não funcione
+                //opções que fazem com que o botão para registar não funcione
+                if (nome.Text == "" || nome.Text == "Nome de utilizador..." || passe.Text == "" || passe.Text == "Palavra-passe..." || email.Text == "" || email.Text == "Email..." || confirmar.Text == "" || confirmar.Text == " Confirmar Palavra-passe...") 
                 {
                     MessageBox.Show("Os requesitos para criar uma conta não se encontram todos corretos!", "Erro na criação de conta", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro
                 }
-                else if (passe.Text != confirmar.Text) //se o texto da textbox passe for diferente do texto da textbox confirmar, dá mensagem de erro!
+                //se o texto da textbox passe for diferente do texto da textbox confirmar, dá mensagem de erro!
+                else if (passe.Text != confirmar.Text) 
                 {
                     MessageBox.Show("As Palavras passe não coincidem!", "Erro ao Criar Conta", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro!
                 }
@@ -197,7 +219,7 @@ namespace projeto_final
                             //Faz a extruturação para adicionar no ficheiro 
                             string linha = ((user.perfil.ToString()) + ";" + user.username + ";" + user.email + ";" + user.password + ";" + 2);
 
-                            //Adiciona no ficheiro 
+                            //Adiciona no ficheiro contas.txt
                             StreamWriter sw;
                             sw = File.AppendText(contas);
                             sw.WriteLine(linha);
@@ -220,12 +242,12 @@ namespace projeto_final
                         }
                         else //Caso não haja confirmacao do password 
                         {
-                            MessageBox.Show("Os passwords são diferentes", "Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Os passwords são diferentes", "Password", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Username já existe!", "Username existente!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Username já existe!", "Username existente!", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro
                     }
                 }
             }
@@ -249,11 +271,7 @@ namespace projeto_final
                 else if (passe.Text != confirmar.Text) //se o texto da textbox passe for diferente do texto da textbox confirmar, dá mensagem de erro!
                 {
                     MessageBox.Show("As Palavras passe não coincidem!", "Erro ao Criar Conta", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro!
-                }
-                //else if (existe == false)
-                //{
-                //    MessageBox.Show("O email não é válido!", "Erro ao Criar Conta", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro!
-                //}
+                }                
 
                 else //caso os campos estejam completados 
                 {
@@ -264,7 +282,7 @@ namespace projeto_final
                             //Faz a extruturação para adicionar no ficheiro 
                             string linha = ((user.perfil.ToString()) + ";" + user.username + ";" + user.email + ";" + user.password + ";" + 0);
 
-                            //Adiciona no ficheiro 
+                            //Adiciona no ficheiro contas
                             StreamWriter sw;
                             sw = File.AppendText(contas);
                             sw.WriteLine(linha);

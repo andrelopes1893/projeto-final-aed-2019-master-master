@@ -13,7 +13,6 @@ namespace projeto_final
 {
     public partial class Form2 : Form
     {
-
         public Form2()
         {
             InitializeComponent();
@@ -25,14 +24,16 @@ namespace projeto_final
             nome.Visible = false;
             label2.Text = variaveis.nomeut;            
 
-            if (variaveis.id==0||variaveis.id==1)
+            if (variaveis.id==0||variaveis.id==1)  // se a conta que der login for de administrador(0) ou for conta de segurança(1)
             {
+                //o botão administrador fica visivel
                 administradorbutton.Visible = true;
             }
-            else
+            else  // se a conta que der login for de docente(2)
             {
+                //o botão administrador fica invisivel
                 administradorbutton.Visible = false;
-            }
+            }            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
