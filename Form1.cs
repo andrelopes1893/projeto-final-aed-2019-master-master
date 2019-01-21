@@ -264,9 +264,6 @@ namespace projeto_final
                 user.email = email.Text;
                 string util = user.username;
 
-                //var contem = "@esmad.ipp.pt";
-                //bool existe = email.Text.Contains(contem);
-
                 if (nome.Text == "" || nome.Text == "Nome de utilizador..." || passe.Text == "" || passe.Text == "Palavra-passe..." || email.Text == "" || email.Text == "Email..." || confirmar.Text == "" || confirmar.Text == " Confirmar Palavra-passe...") //opções que fazem com que o botão para registar não funcione
                 {
                     MessageBox.Show("Os requesitos para criar uma conta não se encontram todos corretos!", "Erro na criação de conta", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro
