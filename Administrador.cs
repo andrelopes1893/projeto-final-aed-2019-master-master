@@ -180,6 +180,10 @@ namespace projeto_final
             {
                 MessageBox.Show("Os requesitos para criar uma conta não se encontram todos corretos!", "Erro na criação de conta", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro
             }
+            else if (!email1.Text.Contains("@esmad.ipp.pt"))
+            {
+                MessageBox.Show("O seu email tem que ser do formato '@esmad.ipp.pt'!", "Erro ao Criar Conta", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro!
+            }
             else if (passe1.Text != confirmar1.Text) //se o texto da textbox passe for diferente do texto da textbox confirmar, dá mensagem de erro!
             {
                 MessageBox.Show("As Palavras passe não coincidem!", "Erro ao Criar Conta", MessageBoxButtons.OK, MessageBoxIcon.Error); //mensagem de erro!
