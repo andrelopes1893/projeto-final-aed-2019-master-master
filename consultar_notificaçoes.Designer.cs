@@ -48,6 +48,7 @@
             this.Data_da_Resposta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Resposta_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -65,7 +66,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -230,6 +230,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(465, 220);
             this.panel1.TabIndex = 4;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button4.Location = new System.Drawing.Point(372, 185);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(88, 30);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Refresh";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dateTimePicker1
             // 
@@ -408,17 +419,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button4.Location = new System.Drawing.Point(372, 185);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(88, 30);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Refresh";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // consultar_notificaçoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -437,7 +437,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "consultar_notificaçoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "consultar_notificaçoes";
+            this.Text = "Consultas de Notificações";
             this.Load += new System.EventHandler(this.consultar_notificaçoes_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
