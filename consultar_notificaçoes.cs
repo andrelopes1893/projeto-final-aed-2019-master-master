@@ -35,7 +35,8 @@ namespace projeto_final
 
             //faz com que aundo se dá o load, a datetimepicker1 venha vazia
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = " "; 
+            dateTimePicker1.CustomFormat = " ";
+            dateTimePicker1.Text = "";
 
             if (Directory.Exists(diretorio))
             {

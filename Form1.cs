@@ -290,6 +290,7 @@ namespace projeto_final
                             int i = 0;
                             string[] linha1 = File.ReadAllLines(contas);
                             int c = 0;
+                            //le o ficheiro com o ciclo for
                             for (i = 0; i < linha1.Length; i++)
                             {
                                 //MessageBox.Show(username + password);
