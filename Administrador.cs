@@ -25,7 +25,11 @@ namespace projeto_final
             timer1.Enabled = true;
             if (variaveis.id ==1)
             {
-                button2.Visible = false;
+                button4.Enabled = false;
+                nome1.Enabled = false;
+                email1.Enabled = false;
+                passe1.Enabled = false;
+                confirmar1.Enabled = false;
             }
         }
 
