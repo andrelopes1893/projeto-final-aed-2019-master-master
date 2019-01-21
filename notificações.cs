@@ -148,8 +148,12 @@ namespace projeto_final
                     sw.WriteLine(linha);
                     sw.Close();
                 }
-                button1.Enabled = false;
+                
                 MessageBox.Show("Notificação enviada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                textBox1.Text = "";
+                textBox4.Text = "";
+                comboBox1.Text = "";
+                comboBox2.Text = "";
             }
         }
 
