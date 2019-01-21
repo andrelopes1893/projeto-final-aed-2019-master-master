@@ -72,10 +72,10 @@ namespace projeto_final
 
         private void button2_Click(object sender, EventArgs e)
         {
-          if(panel1.Visible == true)
-          {
-                panel1.Visible = false;
-          }
+            if(panel1.Visible == true)
+            {
+                    panel1.Visible = false;
+            }
             else
             {
                 panel1.Visible = true;
