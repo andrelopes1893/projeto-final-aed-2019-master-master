@@ -123,10 +123,10 @@
             this.Data_de_instalação,
             this.Hora_de_Instalação,
             this.Tipo_de_Licença});
-            this.dataGridView1.Location = new System.Drawing.Point(31, 115);
+            this.dataGridView1.Location = new System.Drawing.Point(180, 126);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(652, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(651, 400);
             this.dataGridView1.TabIndex = 2;
             // 
             // Software
@@ -177,7 +177,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(60, 556);
+            this.label1.Location = new System.Drawing.Point(223, 548);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 34);
             this.label1.TabIndex = 5;
@@ -187,7 +187,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(170, 566);
+            this.comboBox1.Location = new System.Drawing.Point(229, 600);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(215, 24);
             this.comboBox1.TabIndex = 6;
@@ -196,9 +196,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(741, 600);
+            this.button1.Location = new System.Drawing.Point(599, 600);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 55);
+            this.button1.Size = new System.Drawing.Size(232, 64);
             this.button1.TabIndex = 7;
             this.button1.Text = "Consultar";
             this.button1.UseVisualStyleBackColor = true;
