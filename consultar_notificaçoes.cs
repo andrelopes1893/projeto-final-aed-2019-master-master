@@ -349,13 +349,27 @@ namespace projeto_final
         //botao que apaga os filtros e limpa o conteudo da datagridview
         private void button4_Click(object sender, EventArgs e)
         {
-            dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
-            comboBox1.Text = ""; //Elimina o conteudo existente na combobox1
-            comboBox2.Text = ""; //Elimina o conteudo existente na combobox2
-            textBox2.Text = ""; //Elimina o conteudo existente na textbox2
-            dateTimePicker1.CustomFormat = " ";
-            radioButton1.Checked = false; //desceleciona o radio button1
-            radioButton2.Checked = false; //desceleciona o radio button2
+            if (variaveis.id == 2)
+            {
+                dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
+                comboBox1.Text = ""; //Elimina o conteudo existente na combobox1
+                textBox2.Text = ""; //Elimina o conteudo existente na textbox2
+                dateTimePicker1.CustomFormat = " ";
+                radioButton1.Checked = false; //desceleciona o radio button1
+                radioButton2.Checked = false; //desceleciona o radio button2
+            }
+            else
+            {
+                comboBox2.Text = ""; //Elimina o conteudo existente na combobox2
+                dataGridView2.Rows.Clear(); //Elimina o conteudo existente na datagridview.
+                comboBox1.Text = ""; //Elimina o conteudo existente na combobox1
+                textBox2.Text = ""; //Elimina o conteudo existente na textbox2
+                dateTimePicker1.CustomFormat = " ";
+                radioButton1.Checked = false; //desceleciona o radio button1
+                radioButton2.Checked = false; //desceleciona o radio button2
+            }
+
+            
         }
     }
 }
