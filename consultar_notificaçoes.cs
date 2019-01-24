@@ -198,7 +198,7 @@ namespace projeto_final
                 File.Delete(apoio); //apaga o ficheiro apoio.txt
 
                 //envia uma mensagem de sucesso na resposta as notificaçoes
-                MessageBox.Show("A resposta à notificação foi enviada com sucesso. Escreva um comentário!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("A resposta à notificação foi enviada com sucesso.", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
